@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>co.verisoft</groupId>
+    <artifactId>examples</artifactId>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>VeriSoft examples for using the new VeriSoft framework</description>
+    <version>0.1</version>
+    <url>https://bitbucket.org/nir_gallner/verisoftframeworkexamples</url>
+
+    <properties>
+
+        <!-- Java -->
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!-- Encoding -->
+        <java.encoding>UTF-8</java.encoding>
+        <project.build.sourceEncoding>${java.encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${java.encoding}</project.reporting.outputEncoding>
+
+        <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>co.verisoft</groupId>
+            <artifactId>Selenium4-Junit5</artifactId>
+            <version>0.0.9-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
