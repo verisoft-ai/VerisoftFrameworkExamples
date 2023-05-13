@@ -30,7 +30,7 @@ import java.util.List;
 
 @Execution(ExecutionMode.SAME_THREAD)
 public class CustomReportObserverTest extends BaseTest {
-    
+
     private final SampleObserver sampleObserver;
 
     public CustomReportObserverTest() {
@@ -46,6 +46,8 @@ public class CustomReportObserverTest extends BaseTest {
 
         // Test
         Report.trace("Trace message - should only appear on log");
+
+        // Note!! Verisoft Assert
         Asserts.assertTrue(list.stream().anyMatch(x -> x.contains("Trace message")), "Should appear on log");
     }
 
@@ -58,8 +60,9 @@ public class CustomReportObserverTest extends BaseTest {
 
         // Test
         Report.trace("Trace message - should only appear on log");
-        Asserts.assertTrue(list.stream().anyMatch(x -> x.contains("Trace message")), "Should appear on log");
 
+        // Note!! Verisoft Assert
+        Asserts.assertTrue(list.stream().anyMatch(x -> x.contains("Trace message")), "Should appear on log");
 
         ReportPublisher.getInstance().unregister(sampleObserver);
 
@@ -81,6 +84,8 @@ public class CustomReportObserverTest extends BaseTest {
 
         // Test
         Report.info("Info message - SHOULD appear on log");
+
+        // Note!! Verisoft Assert
         Asserts.assertTrue(list.stream().anyMatch(x -> x.contains("Info message")), "Should appear on log");
 
         ReportPublisher.getInstance().register(sampleObserver); // Will not register twice

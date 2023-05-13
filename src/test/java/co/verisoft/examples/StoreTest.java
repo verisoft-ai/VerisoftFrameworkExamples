@@ -38,6 +38,8 @@ public class StoreTest extends BaseTest{
         String name = "Nir";
         StoreManager.getStore(StoreType.GLOBAL).putValueInStore("NIR", name);
         String receivedName = StoreManager.getStore(StoreType.GLOBAL).getValueFromStore("NIR");
+
+        // Note!! Verisoft Assert
         Asserts.assertEquals(name, receivedName, "Should have retrieved from store");
     }
 
@@ -47,6 +49,8 @@ public class StoreTest extends BaseTest{
         String name = "Irit";
         StoreManager.getStore(StoreType.LOCAL_THREAD).putValueInStore("IRIT", name);
         String receivedName = StoreManager.getStore(StoreType.LOCAL_THREAD).getValueFromStore("IRIT");
+
+        // Note!! Verisoft Assert
         Asserts.assertEquals(name, receivedName, "Should have retrieved from store");
     }
 
@@ -56,6 +60,8 @@ public class StoreTest extends BaseTest{
         String name = "Nir";
         StoreManager.getStore(StoreType.GLOBAL).putValueInStore(key, name);
         String receivedName = StoreManager.getStore(StoreType.GLOBAL).getValueFromStore(key);
+
+        // Note!! Verisoft Assert
         Asserts.assertEquals(name, receivedName, "Should have retrieved from store");
     }
 
@@ -67,6 +73,8 @@ public class StoreTest extends BaseTest{
         String name = "Nir";
         StoreManager.getStore(StoreType.GLOBAL).putValueInStore(key1, name);
         String receivedName = StoreManager.getStore(StoreType.GLOBAL).getValueFromStore(key2);
+
+        // Note!! Verisoft Assert
         Asserts.assertNull(receivedName, "Should have retrieved from store");
     }
 
@@ -77,6 +85,8 @@ public class StoreTest extends BaseTest{
         StoreManager.getStore(StoreType.LOCAL_THREAD).putValueInStore("key", "val2");
 
         String receivedName = StoreManager.getStore(StoreType.LOCAL_THREAD).getValueFromStore("key");
+
+        // Note!! Verisoft Assert
         Asserts.assertEquals(receivedName, "val2", "Store should replace the original value");
     }
 }

@@ -72,6 +72,8 @@ public class AsyncOperationsTests extends BaseTest{
         Thread.sleep(5500);
         driver.findElement(By.id("texta"));
         String text = (String) driver.executeScript("return document.getElementById('texta').value");
+
+        // Note!! Verisoft Assert
         Asserts.assertEquals("test1", text, "text should have been " + "test1");
     }
 
@@ -91,6 +93,8 @@ public class AsyncOperationsTests extends BaseTest{
         Thread.sleep(5000);
         driver.findElement(By.id("texta"));
         String text = (String) driver.executeScript("return document.getElementById('texta').value");
+
+        // Note!! Verisoft Assert
         Asserts.assertEquals("test1", text, "text should have been " + "test1");
 
         // Change value
@@ -119,6 +123,8 @@ public class AsyncOperationsTests extends BaseTest{
         Thread.sleep(5000);
         driver.findElement(By.id("texta"));
         String text = (String) driver.executeScript("return document.getElementById('texta').value");
+
+        // Note!! Verisoft Assert
         Asserts.assertEquals("test1", text, "text should have been " + "test1");
 
         // Change value
@@ -135,7 +141,7 @@ public class AsyncOperationsTests extends BaseTest{
     public void shouldChangeDispatchValues(VerisoftDriver driver)  {
         Duration interval = driver.async().getDispatchInterval();
 
-        // Test default values
+        // Test default values Note!! Verisoft Assert
         Asserts.assertEquals(Duration.ofSeconds(5), interval, "default value for interval is 5 seconds");
 
         // Change values
@@ -149,7 +155,7 @@ public class AsyncOperationsTests extends BaseTest{
     public void shouNotAllowDispatchValuesToBeLessThanOneSecond(VerisoftDriver driver)  {
         Duration interval = driver.async().getDispatchInterval();
 
-        // Test default values
+        // Test default values Note!! Verisoft Assert
         Asserts.assertEquals(Duration.ofSeconds(5), interval, "default value for interval is 5 seconds");
 
         // Change values
@@ -190,6 +196,8 @@ public class AsyncOperationsTests extends BaseTest{
         Thread.sleep(2000);
         driver.findElement(By.id("texta"));
         String text = (String) driver.executeScript("return document.getElementById('texta').value");
+
+        // Note!! Verisoft Assert
         Asserts.assertEquals("", text, "text should have been ''");
 
         // Wait and try again - should  be invoked
@@ -204,6 +212,8 @@ public class AsyncOperationsTests extends BaseTest{
 
         // The default
         AsyncListenerImp listener = new AsyncListenerImp(Duration.ofSeconds(1));
+
+        // Note!! Verisoft Assert
         Asserts.assertEquals(Duration.ofSeconds(5), listener.getDispatchInterval(), "Value should be 5 seconds");
 
         // more than 1
