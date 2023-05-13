@@ -24,22 +24,15 @@
         <project.reporting.outputEncoding>${java.encoding}</project.reporting.outputEncoding>
 
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+        <verisoft.selenium4-juni5.version>0.1.1</verisoft.selenium4-juni5.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>co.verisoft</groupId>
             <artifactId>Selenium4-Junit5</artifactId>
-            <version>0.0.9-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-api</artifactId>
-                </exclusion>
-            </exclusions>
+            <version>${verisoft.selenium4-juni5.version}</version>
         </dependency>
-
-
     </dependencies>
 
     <build>

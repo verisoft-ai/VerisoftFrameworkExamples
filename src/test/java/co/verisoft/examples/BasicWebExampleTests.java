@@ -4,10 +4,12 @@ import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
 import co.verisoft.fw.utils.Asserts;
-import co.verisoft.pageobjects.WikipediaMainPage;
-import co.verisoft.pageobjects.WikipediaResultPage;
+import co.verisoft.wikipedia.pageobjects.WikipediaMainPage;
+import co.verisoft.wikipedia.pageobjects.WikipediaResultPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,6 +18,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Locale;
 
+@Execution(ExecutionMode.CONCURRENT)
 public class BasicWebExampleTests extends BaseTest{
 
     @DriverCapabilities

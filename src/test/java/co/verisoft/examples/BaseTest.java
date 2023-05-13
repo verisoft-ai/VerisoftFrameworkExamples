@@ -9,7 +9,6 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
 @ExtentReport
-@Execution(ExecutionMode.CONCURRENT)
 @ExtendWith({DriverInjectionExtension.class, SeleniumLogExtesion.class, ScreenShotExtension.class})
 public class BaseTest {
 }
