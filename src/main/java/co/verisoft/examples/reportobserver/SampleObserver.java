@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.verisoft.reportobserver;
+package co.verisoft.examples.reportobserver;
 
 import co.verisoft.fw.report.observer.BaseObserver;
 import co.verisoft.fw.report.observer.ReportEntry;

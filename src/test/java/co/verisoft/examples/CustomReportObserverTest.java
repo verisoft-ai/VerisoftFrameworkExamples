@@ -20,7 +20,7 @@ package co.verisoft.examples;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.report.observer.ReportPublisher;
 import co.verisoft.fw.utils.Asserts;
-import co.verisoft.reportobserver.SampleObserver;
+import co.verisoft.examples.reportobserver.SampleObserver;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;

@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.verisoft.mobile.pageobjects;
+package co.verisoft.examples.pageobjects;
 
 import co.verisoft.fw.pages.MobileBasePage;
 import co.verisoft.fw.utils.Waits;

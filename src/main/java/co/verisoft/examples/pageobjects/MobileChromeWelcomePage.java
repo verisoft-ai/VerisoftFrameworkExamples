@@ -15,38 +15,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.verisoft.wikipedia.pageobjects;
+package co.verisoft.examples.pageobjects;
 
-import co.verisoft.fw.pages.WebBasePage;
+import co.verisoft.fw.pages.MobileBasePage;
 import co.verisoft.fw.utils.Waits;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
-public class WikipediaResultPage extends WebBasePage {
+public class MobileChromeWelcomePage extends MobileBasePage {
 
-    @FindBy(xpath = "//input[@name='search']")
-    private WebElement searchBar;
+    @AndroidFindBy(id = "com.android.chrome:id/terms_accept")
+    @iOSXCUITFindBy(id = "SOME IOS ID")
+    private WebElement accept;
 
 
-    /**
-     * C-tor. Initializes generic properties such as timeOut and pollingInterval
-     *
-     * @param driver a WebDriver object to store and use
-     */
-    public WikipediaResultPage(WebDriver driver) {
+    public MobileChromeWelcomePage(WebDriver driver) {
         super(driver);
     }
 
 
     @Override
     public boolean isOnPage() {
-        driver.manage().window().maximize();
-        return Waits.visibilityOf(driver, timeOut, searchBar).isDisplayed();
+        return Waits.visibilityOf(driver, timeOut, accept).isDisplayed();
     }
 
 
-    public String getPageTitle(){
-        return driver.getTitle();
+    public MobileChromeTurnOnSyncPage accept(){
+        this.accept.click();
+        return new MobileChromeTurnOnSyncPage(driver);
     }
 }
