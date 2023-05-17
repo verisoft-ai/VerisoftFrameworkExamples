@@ -24,6 +24,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+/**
+ * A very basic web page object, using the Selenium4-Junit5 framework
+ *
+ * @author <a href="mailto:nir@verisoft.co">Nir Gallner</a>
+ * @since May 2023
+ */
 public class WikipediaMainPage extends WebBasePage {
 
     @FindBy(id = "searchInput")

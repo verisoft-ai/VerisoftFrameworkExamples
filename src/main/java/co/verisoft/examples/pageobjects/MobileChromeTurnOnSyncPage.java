@@ -24,6 +24,12 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * A very basic mobile page object, using the Selenium4-Junit5 framework
+ *
+ * @author <a href="mailto:nir@verisoft.co">Nir Gallner</a>
+ * @since May 2023
+ */
 public class MobileChromeTurnOnSyncPage extends MobileBasePage {
 
     @AndroidFindBy(id = "com.android.chrome:id/negative_button")
@@ -38,6 +44,8 @@ public class MobileChromeTurnOnSyncPage extends MobileBasePage {
 
     @Override
     public boolean isOnPage() {
+
+        // Verisoft wait object
         return Waits.visibilityOf(driver, timeOut, navigate).isDisplayed();
     }
 }

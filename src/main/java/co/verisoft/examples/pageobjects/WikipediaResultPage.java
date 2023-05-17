@@ -23,6 +23,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+/**
+ * A very basic web page object, using the Selenium4-Junit5 framework
+ *
+ * @author <a href="mailto:nir@verisoft.co">Nir Gallner</a>
+ * @since May 2023
+ */
 public class WikipediaResultPage extends WebBasePage {
 
     @FindBy(xpath = "//input[@name='search']")
@@ -42,6 +48,8 @@ public class WikipediaResultPage extends WebBasePage {
     @Override
     public boolean isOnPage() {
         driver.manage().window().maximize();
+
+        // Verisoft wait object
         return Waits.visibilityOf(driver, timeOut, searchBar).isDisplayed();
     }
 

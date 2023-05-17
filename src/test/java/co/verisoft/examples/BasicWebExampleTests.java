@@ -65,7 +65,6 @@ public class BasicWebExampleTests extends BaseTest{
         Asserts.assertTrue(driver.getTitle().contains(phraseToAssert), "Page should contain the pharase " + phraseToAssert);
 
         Report.info("Got to this point - We are on the right page");
-        driver.quit();
     }
 
 

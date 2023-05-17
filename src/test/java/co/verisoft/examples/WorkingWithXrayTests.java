@@ -17,27 +17,23 @@
  */
 package co.verisoft.examples;
 
+import co.verisoft.fw.extensions.jupiter.XrayPluginExtension;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
-import co.verisoft.fw.utils.Attemptable;
-import co.verisoft.fw.utils.Retry;
+import co.verisoft.fw.xray.XrayIdentifier;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NotFoundException;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.concurrent.TimeUnit;
+@ExtendWith(XrayPluginExtension.class)
+public class WorkingWithXrayTests extends BaseTest{
 
-public class RetryTests extends BaseTest{
 
     @DriverCapabilities
     private DesiredCapabilities capabilities = new DesiredCapabilities();
+
     {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
@@ -49,33 +45,12 @@ public class RetryTests extends BaseTest{
         options.merge(capabilities);
     }
 
+
+    // After this test is done, check target/XrayReport folder
     @Test
-    @DisplayName("Test to retry operation")
-    public void retryTest(VerisoftDriver driver){
+    @XrayIdentifier("CBT-1928")
+    @DisplayName("Search Wikipedia test")
+    public void searchWikipedia(VerisoftDriver driver)  {
         driver.get("https://www.wikipedia.org/");
-        driver.findElement(By.id("searchInput")).sendKeys("Test Automation");
-        new Actions(driver).sendKeys(Keys.ENTER).build().perform();
-
-        Retry retry = new Retry(driver, 3, 1500, TimeUnit.MILLISECONDS);
-        retry.attempt(new Attemptable() {
-            @Override
-            public void attempt() throws Throwable {
-                //replace string with "Test automations" to see the retry in action
-                if (driver.getTitle().contains("Test automation"))
-                    return;
-                else
-                    throw new NotFoundException("Could not find element - retrying");
-            }
-
-            @Override
-            public void onAttemptFail() {
-                driver.navigate().refresh();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    // No-op
-                }
-            }
-        });
     }
 }

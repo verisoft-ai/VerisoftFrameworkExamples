@@ -35,6 +35,8 @@ import java.util.function.BiFunction;
  * This code was copied from https://docs.experitest.com/display/TE/Appium+Selenium+Proxy
  * Based on this code with disabled proxySelector: .setUseProxySelector(false)
  * https://github.com/SeleniumHQ/selenium/blob/selenium-4.3.0/java/src/org/openqa/selenium/remote/http/netty/NettyClient.java
+ *
+ * @since May 2023 (in this repo)
  */
 public class ProxyNettyClient implements HttpClient {
 
