@@ -25,6 +25,7 @@
 
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
         <verisoft.selenium4-juni5.version>0.1.1</verisoft.selenium4-juni5.version>
+        <verisoft.test-api.version>0.1.2</verisoft.test-api.version>
     </properties>
 
     <dependencies>
@@ -32,7 +33,20 @@
             <groupId>co.verisoft</groupId>
             <artifactId>Selenium4-Junit5</artifactId>
             <version>${verisoft.selenium4-juni5.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>co.verisoft</groupId>
+                    <artifactId>test-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>co.verisoft</groupId>
+            <artifactId>test-api</artifactId>
+            <version>${verisoft.test-api.version}</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
         <dependency>
