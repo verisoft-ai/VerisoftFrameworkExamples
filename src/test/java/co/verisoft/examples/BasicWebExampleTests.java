@@ -17,6 +17,7 @@
  */
 package co.verisoft.examples;
 
+import co.verisoft.fw.extentreport.Description;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
@@ -96,6 +97,7 @@ public class BasicWebExampleTests extends BaseTest{
 
     @Test
     @DisplayName("Search Wikipedia with Page Objects - Failed Test")
+    @Description("This is a description of the test")
     public void searchWikipediaWithPageObjectsFail(VerisoftDriver driver) throws InterruptedException {
 
         String phraseToSearch = "Test Automation";
