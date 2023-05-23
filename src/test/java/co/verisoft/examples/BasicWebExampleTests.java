@@ -20,6 +20,7 @@ package co.verisoft.examples;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
+import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
 import co.verisoft.fw.utils.Asserts;
 import co.verisoft.examples.pageobjects.WikipediaMainPage;
 import co.verisoft.examples.pageobjects.WikipediaResultPage;
@@ -33,6 +34,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Locale;
 
 @Execution(ExecutionMode.CONCURRENT)
@@ -46,16 +49,21 @@ public class BasicWebExampleTests extends BaseTest{
         options.addArguments("--headless");
 
         capabilities.setBrowserName("chrome");
-        capabilities.setCapability("browserVersion", "113");
-        capabilities.setCapability("driverVersion", "113");
         options.merge(capabilities);
+    }
+
+    @DriverUrl
+    private URL url = new URL("http://65.109.141.131:4444/wd/hub");
+
+    public BasicWebExampleTests() throws MalformedURLException {
     }
 
 
     @Test
     @DisplayName("Search Wikipedia test")
-    public void searchWikipedia(VerisoftDriver driver)  {
+    public void searchWikipedia(VerisoftDriver driver) throws InterruptedException {
         driver.get("https://www.wikipedia.org/");
+        Thread.sleep(30000);
         driver.findElement(By.id("searchInput")).sendKeys("Test Automation");
         new Actions(driver).sendKeys(Keys.ENTER).build().perform();
 
@@ -70,12 +78,13 @@ public class BasicWebExampleTests extends BaseTest{
 
     @Test
     @DisplayName("Search Wikipedia with Page Objects")
-    public void searchWikipediaWithPageObjects(VerisoftDriver driver){
+    public void searchWikipediaWithPageObjects(VerisoftDriver driver) throws InterruptedException {
 
         String phraseToSearch = "Test Automation";
 
         WikipediaMainPage wikipediaMainPage = new WikipediaMainPage(driver);
         WikipediaResultPage resultPage = wikipediaMainPage.gotoPage().searchForTerm(phraseToSearch);
+        Thread.sleep(30000);
 
         // Note!! Verisoft Assert
         Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");
@@ -89,12 +98,13 @@ public class BasicWebExampleTests extends BaseTest{
 
     @Test
     @DisplayName("Search Wikipedia with Page Objects - Failed Test")
-    public void searchWikipediaWithPageObjectsFail(VerisoftDriver driver){
+    public void searchWikipediaWithPageObjectsFail(VerisoftDriver driver) throws InterruptedException {
 
         String phraseToSearch = "Test Automation";
 
         WikipediaMainPage wikipediaMainPage = new WikipediaMainPage(driver);
         WikipediaResultPage resultPage = wikipediaMainPage.gotoPage().searchForTerm(phraseToSearch);
+        Thread.sleep(30000);
 
         // Note!! Verisoft Assert
         Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");
