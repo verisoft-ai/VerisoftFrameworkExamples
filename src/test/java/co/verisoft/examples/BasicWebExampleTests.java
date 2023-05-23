@@ -52,8 +52,6 @@ public class BasicWebExampleTests extends BaseTest{
         options.merge(capabilities);
     }
 
-    @DriverUrl
-    private URL url = new URL("http://65.109.141.131:4444/wd/hub");
 
     public BasicWebExampleTests() throws MalformedURLException {
     }
