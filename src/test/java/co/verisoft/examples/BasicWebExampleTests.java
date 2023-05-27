@@ -62,7 +62,6 @@ public class BasicWebExampleTests extends BaseTest{
     @DisplayName("Search Wikipedia test")
     public void searchWikipedia(VerisoftDriver driver) throws InterruptedException {
         driver.get("https://www.wikipedia.org/");
-        Thread.sleep(30000);
         driver.findElement(By.id("searchInput")).sendKeys("Test Automation");
         new Actions(driver).sendKeys(Keys.ENTER).build().perform();
 
@@ -83,7 +82,6 @@ public class BasicWebExampleTests extends BaseTest{
 
         WikipediaMainPage wikipediaMainPage = new WikipediaMainPage(driver);
         WikipediaResultPage resultPage = wikipediaMainPage.gotoPage().searchForTerm(phraseToSearch);
-        Thread.sleep(30000);
 
         // Note!! Verisoft Assert
         Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");
@@ -104,7 +102,6 @@ public class BasicWebExampleTests extends BaseTest{
 
         WikipediaMainPage wikipediaMainPage = new WikipediaMainPage(driver);
         WikipediaResultPage resultPage = wikipediaMainPage.gotoPage().searchForTerm(phraseToSearch);
-        Thread.sleep(30000);
 
         // Note!! Verisoft Assert
         Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");

@@ -8,7 +8,7 @@
     <artifactId>examples</artifactId>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>VeriSoft examples for using the new VeriSoft framework</description>
-    <version>0.1</version>
+    <version>1.1</version>
     <url>https://bitbucket.org/nir_gallner/verisoftframeworkexamples</url>
 
     <properties>
@@ -23,9 +23,9 @@
         <project.build.sourceEncoding>${java.encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${java.encoding}</project.reporting.outputEncoding>
 
-        <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
-        <verisoft.selenium4-juni5.version>0.1.1</verisoft.selenium4-juni5.version>
-        <verisoft.test-api.version>0.1.2</verisoft.test-api.version>
+        <maven.surefire.plugin.version>3.1.0</maven.surefire.plugin.version>
+        <verisoft.selenium4-juni5.version>0.1.3</verisoft.selenium4-juni5.version>
+        <verisoft.test-api.version>0.1.3</verisoft.test-api.version>
     </properties>
 
     <dependencies>
@@ -48,37 +48,17 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>5.3.27</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>5.3.27</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.3.27</version>
-        </dependency>
-
-
-
     </dependencies>
 
     <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.plugin.version}</version>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>
