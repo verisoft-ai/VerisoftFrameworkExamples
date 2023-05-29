@@ -17,15 +17,16 @@
  */
 package co.verisoft.examples;
 
+import co.verisoft.examples.pageobjects.WikipediaMainPage;
+import co.verisoft.examples.pageobjects.WikipediaResultPage;
 import co.verisoft.fw.extentreport.Description;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
 import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
 import co.verisoft.fw.utils.Asserts;
-import co.verisoft.examples.pageobjects.WikipediaMainPage;
-import co.verisoft.examples.pageobjects.WikipediaResultPage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -53,6 +54,9 @@ public class BasicWebExampleTests extends BaseTest{
         options.merge(capabilities);
     }
 
+    @DriverUrl
+    private URL url = new URL("http://65.109.141.131:4444/wd/hub");
+
 
     public BasicWebExampleTests() throws MalformedURLException {
     }
@@ -79,9 +83,9 @@ public class BasicWebExampleTests extends BaseTest{
     public void searchWikipediaWithPageObjects(VerisoftDriver driver) throws InterruptedException {
 
         String phraseToSearch = "Test Automation";
-
         WikipediaMainPage wikipediaMainPage = new WikipediaMainPage(driver);
         WikipediaResultPage resultPage = wikipediaMainPage.gotoPage().searchForTerm(phraseToSearch);
+        Thread.sleep(20000);
 
         // Note!! Verisoft Assert
         Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");
