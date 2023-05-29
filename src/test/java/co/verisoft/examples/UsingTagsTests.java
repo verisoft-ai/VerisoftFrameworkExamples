@@ -20,11 +20,6 @@ package co.verisoft.examples;
 import co.verisoft.examples.tags.Suites;
 import co.verisoft.fw.extentreport.ExtentReport;
 import co.verisoft.fw.report.observer.Report;
-import co.verisoft.fw.store.StoreManager;
-import co.verisoft.fw.store.StoreType;
-import co.verisoft.fw.utils.Asserts;
-import net.bytebuddy.utility.dispatcher.JavaDispatcher;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -33,6 +28,7 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 
 /**
  * Test example for using tag names as filters
+ * Usage example (from CLI): mvn test -Dgroups=Sanity
  *
  * @author <a href="mailto:nir@verisoft.co">Nir Gallner</a>
  * @since May 2023
