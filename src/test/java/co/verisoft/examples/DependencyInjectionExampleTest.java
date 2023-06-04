@@ -28,10 +28,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -42,7 +44,8 @@ public class DependencyInjectionExampleTest extends BaseTest{
 
     @DriverCapabilities
     @Autowired
-    private DesiredCapabilities capabilities;
+    //@Qualifier("firefox")
+    private Capabilities capabilities;
 
 
     @Test

@@ -25,6 +25,8 @@ import co.verisoft.fw.utils.Asserts;
 import co.verisoft.fw.utils.Waits;
 import co.verisoft.examples.pageobjects.MobileChromeTurnOnSyncPage;
 import co.verisoft.examples.pageobjects.MobileChromeWelcomePage;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.ShakesDevice;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -36,6 +38,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
+
+import static io.appium.java_client.remote.AndroidMobileCapabilityType.RESET_KEYBOARD;
+import static io.appium.java_client.remote.AndroidMobileCapabilityType.UNICODE_KEYBOARD;
+import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 
 @Execution(ExecutionMode.SAME_THREAD)
 public class BasicMobileExampleTests extends BaseTest {
@@ -44,14 +51,21 @@ public class BasicMobileExampleTests extends BaseTest {
     private URL url = new URL("http://127.0.0.1:4723/wd/hub/");
 
     @DriverCapabilities
-    private DesiredCapabilities capabilities = new DesiredCapabilities();
-
+    UiAutomator2Options uiAutomator2Options = new UiAutomator2Options();
     {
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability("appPackage", "com.android.chrome");
-        capabilities.setCapability("appActivity", "com.google.android.apps.chrome.Main");
-        capabilities.setCapability("automationName", "UIAutomator2");
+        uiAutomator2Options.setPlatformName(ANDROID)
+            .setUdid("RF8M91XQ8TW")
+            .setPlatformVersion("12")
+            .setAutoGrantPermissions(true)
+            .setNoReset(false)
+            .setNewCommandTimeout(Duration.ofMinutes(5))
+            .setAppActivity(".MainActivity")
+            .setAppPackage("io.water.hydration")
+            .setAutomationName("Flutter")
+            .amend(UNICODE_KEYBOARD, true)
+            .amend(RESET_KEYBOARD, true);
     }
+
 
 
     public BasicMobileExampleTests() throws MalformedURLException {

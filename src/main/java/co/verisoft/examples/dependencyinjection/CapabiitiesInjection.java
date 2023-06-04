@@ -18,11 +18,15 @@
 package co.verisoft.examples.dependencyinjection;
 
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 
 /**
@@ -33,23 +37,30 @@ import org.springframework.context.annotation.Configuration;
  * @since May 2023
  */
 @Configuration
-@ComponentScan("co.verisoft")
+@ComponentScan("co.verisoft.examples")
 public class CapabiitiesInjection {
 
 
-    @Bean
-    public DesiredCapabilities getCapabilities() {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-
+    @Bean("chrome")
+    @Primary
+    public Capabilities getChromeCapabilities() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
 
-        capabilities.setBrowserName("chrome");
-        capabilities.setCapability("browserVersion", "113");
-        capabilities.setCapability("driverVersion", "113");
-        options.merge(capabilities);
 
-        return capabilities;
+        return options;
+    }
+
+    @Bean("edge")
+    public Capabilities getEdgeCapabilities(){
+        EdgeOptions options = new EdgeOptions();
+        options.addArguments("--no-sandbox");
+        return options;
+    }
+
+    @Bean("firefox")
+    public Capabilities getFirefoxCapabilities(){
+        return new FirefoxOptions();
     }
 }
