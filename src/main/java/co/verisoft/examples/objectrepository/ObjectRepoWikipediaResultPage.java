@@ -15,38 +15,47 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.verisoft.examples.pageobjects;
+package co.verisoft.examples.objectrepository;
 
-
-import co.verisoft.fw.pages.MobileBasePage;
+import co.verisoft.fw.objectrepository.ObjectRepositoryItem;
+import co.verisoft.fw.pages.WebBasePage;
 import co.verisoft.fw.utils.Waits;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 /**
- * A very basic mobile page object, using the Selenium4-Junit5 framework
+ * A very basic web page object, using the Selenium4-Junit5 framework
  *
  * @author <a href="mailto:nir@verisoft.co">Nir Gallner</a>
  * @since May 2023
  */
-public class MobileChromeTurnOnSyncPage extends MobileBasePage {
+public class ObjectRepoWikipediaResultPage extends WebBasePage {
 
-    @AndroidFindBy(id = "com.android.chrome:id/negative_button")
-    @iOSXCUITFindBy(id = "SOME IOS ID")
-    private WebElement navigate;
+    @ObjectRepositoryItem(id = "WIKI-SEARCH-BAR")
+    private WebElement searchBar;
 
 
-    public MobileChromeTurnOnSyncPage(WebDriver driver) {
+    /**
+     * C-tor. Initializes generic properties such as timeOut and pollingInterval
+     *
+     * @param driver a WebDriver object to store and use
+     */
+    public ObjectRepoWikipediaResultPage(WebDriver driver) {
         super(driver);
     }
 
 
     @Override
     public boolean isOnPage() {
+        driver.manage().window().maximize();
 
         // Verisoft wait object
-        return Waits.visibilityOf(driver, timeOut, navigate).isDisplayed();
+        return Waits.visibilityOf(driver, timeOut, searchBar).isDisplayed();
+    }
+
+
+    public String getPageTitle(){
+        return driver.getTitle();
     }
 }

@@ -1,0 +1,55 @@
+pipeline {
+    agent {
+        node {
+            label 'demo-docker-slave'
+        }
+    }
+
+
+    stages {
+        stage('Clone') {
+            steps {
+                git url: 'https://NirGallner@bitbucket.org/nir_gallner/verisoftframeworkexamples.git', branch: 'DemoForBank'
+
+            }
+        }
+        stage('Compile'){
+            steps{
+                sh 'mvn -Dmaven.test.failure.ignore=true clean compile validate'
+            }
+        }
+
+        stage('Test'){
+            steps{
+                sh 'mvn -Dmaven.test.failure.ignore=true test -Dtest=MorgtagesDemo'
+
+                // To run Maven on a Windows agent, use
+                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+
+            post {
+                // If Maven was able to run the tests, even if some of the test
+                // failed, record the test results and archive the jar file.
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+            }
+        }
+
+    }
+
+    post{
+        always{
+            echo 'Will not archive since currently it results in build failure. TODO: SHOULD BE FIXED'
+            //    archiveArtifacts artifacts: '**/Extent-Report/**/*.*', allowEmptyArchive: true, fingerprint: true, onlyIfSuccessful: false
+            //    archiveArtifacts artifacts: '**/logs/**/*.*', allowEmptyArchive: true, fingerprint: true, onlyIfSuccessful: false
+            // archiveArtifacts artifacts: '**/XrayReport/**/*.*', allowEmptyArchive: true, fingerprint: true, onlyIfSuccessful: false
+
+//                publishHTML (target : [allowMissing: false,  alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'target/Extent-Report/', reportFiles: 'TestReport.html',
+//                                       reportName: 'Results', reportTitles: 'Results'])
+
+
+        }
+
+    }
+}

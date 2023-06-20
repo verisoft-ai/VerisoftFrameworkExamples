@@ -1,0 +1,44 @@
+{
+  "objectsRepository": [
+    {
+      "objectId": "WIKI-MAIN-SEARCH",
+      "locators": [
+        {
+          "type": "id",
+          "value": "searchInput",
+          "grade": 80
+        },
+        {
+          "type": "xpath",
+          "value": "//badXpath",
+          "grade": 90
+        },
+        {
+          "type": "css",
+          "value": "#NoCss",
+          "grade": 50
+        }
+      ]
+    },
+    {
+      "objectId": "WIKI-SEARCH-BAR",
+      "locators": [
+        {
+          "type": "xpath",
+          "value": "//input[@name='search']",
+          "grade": 10
+        },
+        {
+          "type": "id",
+          "value": "BadId",
+          "grade": 80
+        },
+        {
+          "type": "css",
+          "value": "#BadCss",
+          "grade": 50
+        }
+      ]
+    }
+  ]
+}

@@ -25,6 +25,7 @@ import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
 import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
 import co.verisoft.fw.utils.Asserts;
+import co.verisoft.fw.utils.Waits;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
@@ -70,12 +71,13 @@ public class BasicWebExampleTests extends BaseTest {
 
     @Test
     @DisplayName("Search Wikipedia with Page Objects")
-    public void searchWikipediaWithPageObjects(VerisoftDriver driver) throws InterruptedException {
+    @Description("This test has a description")
+    public void searchWikipediaWithPageObjects(VerisoftDriver driver){
 
         String phraseToSearch = "Test Automation";
         WikipediaMainPage wikipediaMainPage = new WikipediaMainPage(driver);
         WikipediaResultPage resultPage = wikipediaMainPage.gotoPage().searchForTerm(phraseToSearch);
-        Thread.sleep(20000);
+        Waits.milliseconds(10000);
 
         // Note!! Verisoft Assert
         Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");
