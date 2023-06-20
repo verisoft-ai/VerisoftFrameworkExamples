@@ -30,7 +30,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Locale;
 
-public class BasicProxyTests extends BaseTest {
+public class ObjectRepositoryTests extends BaseTest {
 
     @DriverCapabilities
     private ChromeOptions capabilities = new ChromeOptions();
