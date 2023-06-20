@@ -17,9 +17,9 @@
  */
 package co.verisoft.examples;
 
+import co.verisoft.fw.asserts.Asserts;
 import co.verisoft.fw.store.StoreManager;
 import co.verisoft.fw.store.StoreType;
-import co.verisoft.fw.utils.Asserts;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;

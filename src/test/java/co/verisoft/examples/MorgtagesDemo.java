@@ -1,7 +1,6 @@
 package co.verisoft.examples;
 
 import co.verisoft.fw.CustomReportPortalExtension;
-import co.verisoft.fw.extentreport.Description;
 import co.verisoft.fw.extentreport.ExtentReport;
 import co.verisoft.fw.report.observer.Report;
 import com.epam.reportportal.listeners.LogLevel;
@@ -15,10 +14,8 @@ import org.junit.jupiter.params.provider.EnumSource;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.Base64;
 import java.util.Date;
 import java.util.Random;
 

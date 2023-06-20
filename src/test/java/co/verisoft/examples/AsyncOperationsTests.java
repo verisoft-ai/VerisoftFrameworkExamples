@@ -18,12 +18,12 @@
 package co.verisoft.examples;
 
 
+import co.verisoft.fw.asserts.Asserts;
 import co.verisoft.fw.async.AsyncListenerImp;
 import co.verisoft.fw.async.AsyncTask;
 import co.verisoft.fw.async.Observer;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
-import co.verisoft.fw.utils.Asserts;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;

@@ -17,11 +17,11 @@
  */
 package co.verisoft.examples;
 
+import co.verisoft.fw.asserts.Asserts;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftMobileDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
 import co.verisoft.fw.selenium.drivers.factory.DriverCommandExecutor;
-import co.verisoft.fw.utils.Asserts;
 import co.verisoft.fw.utils.Waits;
 import io.appium.java_client.MobileCommand;
 import io.appium.java_client.remote.AppiumCommandExecutor;

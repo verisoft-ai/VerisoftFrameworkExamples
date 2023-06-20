@@ -19,11 +19,11 @@ package co.verisoft.examples;
 
 import co.verisoft.examples.objectrepository.ObjectRepoWikipediaMainPage;
 import co.verisoft.examples.objectrepository.ObjectRepoWikipediaResultPage;
+import co.verisoft.fw.asserts.Asserts;
 import co.verisoft.fw.extentreport.Description;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
-import co.verisoft.fw.utils.Asserts;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;

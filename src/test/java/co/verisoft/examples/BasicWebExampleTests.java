@@ -19,12 +19,12 @@ package co.verisoft.examples;
 
 import co.verisoft.examples.pageobjects.WikipediaMainPage;
 import co.verisoft.examples.pageobjects.WikipediaResultPage;
+import co.verisoft.fw.asserts.Asserts;
 import co.verisoft.fw.extentreport.Description;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
 import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
-import co.verisoft.fw.utils.Asserts;
 import co.verisoft.fw.utils.Waits;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,6 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
 
 import java.net.MalformedURLException;
@@ -46,11 +45,8 @@ public class BasicWebExampleTests extends BaseTest {
     @DriverCapabilities
     private ChromeOptions capabilities = new ChromeOptions();
 
-    @DriverUrl
-    private URL url = new URL("http://65.109.141.131:4444/wd/hub");
 
-
-    public BasicWebExampleTests() throws MalformedURLException {
+    public BasicWebExampleTests() {
     }
 
 
@@ -72,7 +68,7 @@ public class BasicWebExampleTests extends BaseTest {
     @Test
     @DisplayName("Search Wikipedia with Page Objects")
     @Description("This test has a description")
-    public void searchWikipediaWithPageObjects(VerisoftDriver driver){
+    public void searchWikipediaWithPageObjects(VerisoftDriver driver) {
 
         String phraseToSearch = "Test Automation";
         WikipediaMainPage wikipediaMainPage = new WikipediaMainPage(driver);

@@ -17,24 +17,21 @@
  */
 package co.verisoft.examples;
 
+import co.verisoft.examples.pageobjects.MobileChromeTurnOnSyncPage;
+import co.verisoft.examples.pageobjects.MobileChromeWelcomePage;
+import co.verisoft.fw.asserts.Asserts;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftMobileDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
 import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
-import co.verisoft.fw.utils.Asserts;
 import co.verisoft.fw.utils.Waits;
-import co.verisoft.examples.pageobjects.MobileChromeTurnOnSyncPage;
-import co.verisoft.examples.pageobjects.MobileChromeWelcomePage;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.ios.ShakesDevice;
-import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
