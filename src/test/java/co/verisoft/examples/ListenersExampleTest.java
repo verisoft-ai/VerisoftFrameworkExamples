@@ -29,9 +29,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.events.WebDriverListener;
 
 @ExtentReport
@@ -44,12 +42,12 @@ public class ListenersExampleTest {
 
     @Test
     @ExtendWith(DriverInjectionExtension.class)
-    public void addListenerInline(WebDriver driver) {
+    public void addListenerInline(VerisoftDriver driver) {
         WebDriverListener listener = new ExampleListener();
-        WebDriver newDriver = new EventFiringDecorator(listener).decorate(driver);
-
-        newDriver.get("https://www.google.com");
+        driver.addListener(listener);
+        driver.get("https://www.google.com");
     }
+
 
     @Test
     @ExtendWith(CustomDriverInjectionExtension.class)
