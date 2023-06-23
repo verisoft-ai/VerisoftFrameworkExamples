@@ -24,7 +24,6 @@ import co.verisoft.fw.extentreport.Description;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
-import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
 import co.verisoft.fw.utils.Waits;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -36,7 +35,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Locale;
 
 @Execution(ExecutionMode.CONCURRENT)
@@ -46,8 +44,8 @@ public class BasicWebExampleTests extends BaseTest {
     private ChromeOptions capabilities = new ChromeOptions();
 
 
-    @DriverUrl
-    private URL url = new URL("http://65.109.141.131:4444/wd/hub");
+   // @DriverUrl
+   // private URL url = new URL("http://65.109.141.130:4444/wd/hub");
     public BasicWebExampleTests() throws MalformedURLException {
     }
 

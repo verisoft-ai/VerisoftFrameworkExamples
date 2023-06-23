@@ -42,7 +42,6 @@ public class DependencyInjectionExampleTest extends BaseTest{
 
     @DriverCapabilities
     @Autowired
-    //@Qualifier("firefox")
     private Capabilities capabilities;
 
 
