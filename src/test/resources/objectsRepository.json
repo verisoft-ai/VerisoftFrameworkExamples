@@ -2,6 +2,7 @@
   "objectsRepository": [
     {
       "objectId": "WIKI-MAIN-SEARCH",
+      "pageName": "WikiMainPage",
       "locators": [
         {
           "type": "id",
@@ -22,6 +23,7 @@
     },
     {
       "objectId": "WIKI-SEARCH-BAR",
+      "pageName": "WikiSearchPage",
       "locators": [
         {
           "type": "xpath",
