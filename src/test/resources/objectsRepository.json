@@ -2,7 +2,28 @@
   "objectsRepository": [
     {
       "objectId": "WIKI-MAIN-SEARCH",
-      "pageName": "WikiMainPage",
+      "pageName": "ObjectRepoWikipediaMainPage",
+      "locators": [
+        {
+          "type": "id",
+          "value": "searchInput",
+          "grade": 80
+        },
+        {
+          "type": "xpath",
+          "value": "//badXpath",
+          "grade": 90
+        },
+        {
+          "type": "css",
+          "value": "#NoCss",
+          "grade": 50
+        }
+      ]
+    },
+    {
+      "objectId": "WIKI-MAIN-SEARCH",
+      "pageName": "WikipediaMainPage",
       "locators": [
         {
           "type": "id",

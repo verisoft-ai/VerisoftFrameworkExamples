@@ -18,12 +18,12 @@
 package co.verisoft.examples.objectrepository;
 
 import co.verisoft.fw.objectrepository.ObjectRepositoryItem;
+import co.verisoft.fw.objectrepository.PageObjectName;
 import co.verisoft.fw.pages.WebBasePage;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 
 /**
  * A very basic web page object, using the Selenium4-Junit5 framework
@@ -31,6 +31,7 @@ import org.openqa.selenium.support.FindBy;
  * @author <a href="mailto:nir@verisoft.co">Nir Gallner</a>
  * @since May 2023
  */
+@PageObjectName
 public class ObjectRepoWikipediaMainPage extends WebBasePage {
 
     @ObjectRepositoryItem(id = "WIKI-MAIN-SEARCH")
