@@ -70,9 +70,6 @@ public class PropertyFileLoaderTest extends BaseTest{
     @Test
     @DisplayName("Custom Property")
     public void customProperty(VerisoftDriver driver) throws InterruptedException {
-
         Assertions.assertEquals(customProperty.getCustomProperty(), "Hello");
     }
-
-
 }

@@ -24,7 +24,6 @@ import co.verisoft.fw.extentreport.Description;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
-import co.verisoft.fw.utils.Waits;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
@@ -44,8 +43,8 @@ public class BasicWebExampleTests extends BaseTest {
     private ChromeOptions capabilities = new ChromeOptions();
 
 
-   // @DriverUrl
-   // private URL url = new URL("http://65.109.141.130:4444/wd/hub");
+//    @DriverUrl
+//    private URL url = new URL("http://65.109.141.130:4444/wd/hub");
     public BasicWebExampleTests() throws MalformedURLException {
     }
 
@@ -57,7 +56,7 @@ public class BasicWebExampleTests extends BaseTest {
         driver.findElement(By.id("searchInput")).sendKeys("Test Automation");
         new Actions(driver).sendKeys(Keys.ENTER).build().perform();
         String phraseToAssert = "Test automation";
-        Thread.sleep(15000);
+
         // Note!! Verisoft Assert
         Asserts.assertTrue(driver.getTitle().contains(phraseToAssert), "Page should contain the pharase " + phraseToAssert);
 
@@ -73,7 +72,6 @@ public class BasicWebExampleTests extends BaseTest {
         String phraseToSearch = "Test Automation";
         WikipediaMainPage wikipediaMainPage = new WikipediaMainPage(driver);
         WikipediaResultPage resultPage = wikipediaMainPage.gotoPage().searchForTerm(phraseToSearch);
-        Waits.milliseconds(10000);
 
         // Note!! Verisoft Assert
         Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");
@@ -94,7 +92,7 @@ public class BasicWebExampleTests extends BaseTest {
 
         WikipediaMainPage wikipediaMainPage = new WikipediaMainPage(driver);
         WikipediaResultPage resultPage = wikipediaMainPage.gotoPage().searchForTerm(phraseToSearch);
-        Thread.sleep(15000);
+
         // Note!! Verisoft Assert
         Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");
         Report.info("We reaeched the result page");
