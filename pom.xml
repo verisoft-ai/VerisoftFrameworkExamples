@@ -24,8 +24,8 @@
         <project.reporting.outputEncoding>${java.encoding}</project.reporting.outputEncoding>
 
         <maven.surefire.plugin.version>3.1.0</maven.surefire.plugin.version>
-        <verisoft.selenium4-juni5.version>0.1.10</verisoft.selenium4-juni5.version>
-        <verisoft.test-api.version>0.1.6</verisoft.test-api.version>
+        <verisoft.selenium4-juni5.version>0.1.12</verisoft.selenium4-juni5.version>
+        <verisoft.test-api.version>0.1.11</verisoft.test-api.version>
     </properties>
 
     <dependencies>
@@ -46,6 +46,11 @@
             <groupId>co.verisoft</groupId>
             <artifactId>test-api</artifactId>
             <version>${verisoft.test-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.pavelicii</groupId>
+            <artifactId>allpairs4j</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
