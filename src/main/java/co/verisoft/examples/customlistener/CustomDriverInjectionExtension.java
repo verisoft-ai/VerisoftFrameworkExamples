@@ -21,7 +21,6 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolutionException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.events.WebDriverListener;
 
 public class CustomDriverInjectionExtension extends DriverInjectionExtension {
 
@@ -34,10 +33,6 @@ public class CustomDriverInjectionExtension extends DriverInjectionExtension {
     @Override
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
         WebDriver generatedDriver = ((WebDriver) super.resolveParameter(parameterContext, extensionContext));
-
-        WebDriverListener listener = new ExampleListener();
-        ((VerisoftDriver) generatedDriver).addListener(listener);
-
         return generatedDriver;
     }
 

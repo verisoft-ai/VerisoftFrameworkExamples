@@ -1,7 +1,6 @@
 package co.verisoft.examples;
 
 import co.verisoft.examples.api.ApiRequest;
-import co.verisoft.examples.api.responses.Employee;
 import co.verisoft.examples.api.responses.EmployeeWrapper;
 import co.verisoft.examples.api.responses.EmployeesWrapper;
 import com.fasterxml.jackson.core.JsonProcessingException;

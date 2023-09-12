@@ -43,7 +43,7 @@ public class BasicWebExampleTests extends BaseTest {
     private ChromeOptions capabilities = new ChromeOptions();
 
 
-//    @DriverUrl
+    //    @DriverUrl
 //    private URL url = new URL("http://65.109.141.130:4444/wd/hub");
     public BasicWebExampleTests() throws MalformedURLException {
     }

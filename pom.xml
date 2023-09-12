@@ -8,7 +8,7 @@
     <artifactId>examples</artifactId>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>VeriSoft examples for using the new VeriSoft framework</description>
-    <version>1.1</version>
+    <version>1.2</version>
     <url>https://bitbucket.org/nir_gallner/verisoftframeworkexamples</url>
 
     <properties>
@@ -24,8 +24,8 @@
         <project.reporting.outputEncoding>${java.encoding}</project.reporting.outputEncoding>
 
         <maven.surefire.plugin.version>3.1.0</maven.surefire.plugin.version>
-        <verisoft.selenium4-juni5.version>0.1.12</verisoft.selenium4-juni5.version>
-        <verisoft.test-api.version>0.1.11</verisoft.test-api.version>
+        <verisoft.selenium4-juni5.version>0.1.17</verisoft.selenium4-juni5.version>
+        <verisoft.test-api.version>0.1.15</verisoft.test-api.version>
         <rest.assured.version>5.3.1</rest.assured.version>
     </properties>
 
@@ -61,7 +61,6 @@
             <version>${rest.assured.version}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
