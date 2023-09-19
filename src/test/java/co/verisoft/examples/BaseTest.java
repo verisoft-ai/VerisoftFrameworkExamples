@@ -23,6 +23,15 @@ import co.verisoft.fw.selenium.junit.extensions.ScreenShotExtension;
 import co.verisoft.fw.selenium.junit.extensions.SeleniumLogExtesion;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+/**
+ *
+ * BaseTest serves as the base class for all test classes in this project.
+ * It includes necessary extensions and configurations for running tests.
+ *
+ * <p><strong>Important:</strong> Do not use the {@code @Execution(ExecutionMode.CONCURRENT)}
+ * annotation with test classes that extend BaseTest, as it may lead to issues when multiple
+ * tests run concurrently. This base class is not designed for concurrent execution.
+ */
 @ExtentReport
 @ExtendWith({DriverInjectionExtension.class, SeleniumLogExtesion.class, ScreenShotExtension.class})
 public class BaseTest {
