@@ -65,6 +65,18 @@ public class StoreTest extends BaseTest{
         Asserts.assertEquals(name, receivedName, "Should have retrieved from store");
     }
 
+    @Test
+    public void shouldCreateUniqueStore() {
+        String key = "key";
+        StoreManager.getStore("unique").putValueInStore(key, "value");
+        String receivedNameGlobal = StoreManager.getStore(StoreType.GLOBAL).getValueFromStore(key);
+        String receivedNameLocal = StoreManager.getStore(StoreType.LOCAL_THREAD).getValueFromStore(key);
+
+        // Note!! Verisoft Assert
+        Asserts.assertNull(receivedNameGlobal, "Should not be retrieved from store");
+        Asserts.assertNull(receivedNameLocal, "Should not be retrieved from store");
+    }
+
 
     @Test
     public void shouldNotUse2OBject() {
