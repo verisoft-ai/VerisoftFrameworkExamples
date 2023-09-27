@@ -24,7 +24,7 @@
         <project.reporting.outputEncoding>${java.encoding}</project.reporting.outputEncoding>
 
         <maven.surefire.plugin.version>3.1.0</maven.surefire.plugin.version>
-        <verisoft.selenium4-juni5.version>0.1.18</verisoft.selenium4-juni5.version>
+        <verisoft.selenium4-junit5.version>0.1.19</verisoft.selenium4-junit5.version>
         <verisoft.test-api.version>0.1.18</verisoft.test-api.version>
         <rest.assured.version>5.3.1</rest.assured.version>
     </properties>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>co.verisoft</groupId>
             <artifactId>Selenium4-Junit5</artifactId>
-            <version>${verisoft.selenium4-juni5.version}</version>
+            <version>${verisoft.selenium4-junit5.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>co.verisoft</groupId>
