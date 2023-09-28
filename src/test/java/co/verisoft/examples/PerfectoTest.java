@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,10 +19,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Execution(ExecutionMode.CONCURRENT)
-@ExtendWith({PerfectoLogExtension.class})
+//@ExtendWith({PerfectoLogExtension.class})
 public class PerfectoTest extends BaseTest {
 
     @DriverCapabilities
+
     UiAutomator2Options capabilities = new UiAutomator2Options();
 
     {
