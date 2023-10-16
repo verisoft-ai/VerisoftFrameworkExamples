@@ -24,7 +24,6 @@ import co.verisoft.fw.selenium.junit.extensions.SeleniumLogExtesion;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
- *
  * BaseTest serves as the base class for all test classes in this project.
  * It includes necessary extensions and configurations for running tests.
  *
