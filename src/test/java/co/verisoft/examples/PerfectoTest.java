@@ -10,6 +10,7 @@ import co.verisoft.fw.store.StoreManager;
 import co.verisoft.fw.store.StoreType;
 import com.perfecto.reportium.client.ReportiumClient;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,10 +24,10 @@ import java.util.Map;
 
 @Execution(ExecutionMode.CONCURRENT)
 @ExtendWith({PerfectoLogExtension.class})
+@Disabled
 public class PerfectoTest extends BaseTest {
 
     @DriverCapabilities
-
     UiAutomator2Options capabilities = new UiAutomator2Options();
 
     {

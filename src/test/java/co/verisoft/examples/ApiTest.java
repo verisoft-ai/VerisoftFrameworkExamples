@@ -73,7 +73,6 @@ public class ApiTest {
     }
 
 
-
     /**
      * This method is used to build a RestAssured request
      *

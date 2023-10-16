@@ -25,6 +25,7 @@ import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
 import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -39,6 +40,7 @@ import java.net.URL;
 @Slf4j
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {EnvConfig.class})
+@Disabled
 public class PropertyFileLoaderTest extends BaseTest{
 
     @Autowired

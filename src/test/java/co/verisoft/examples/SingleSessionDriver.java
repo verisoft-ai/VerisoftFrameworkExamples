@@ -24,8 +24,6 @@ public class SingleSessionDriver extends BaseTest{
         options.addArguments("--headless");
 
         capabilities.setBrowserName("chrome");
-        capabilities.setCapability("browserVersion", "113");
-        capabilities.setCapability("driverVersion", "113");
         options.merge(capabilities);
     }
 
