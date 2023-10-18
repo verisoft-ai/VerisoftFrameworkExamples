@@ -67,7 +67,7 @@ public class PerfectoTest extends BaseTest {
     @Test
     @Tag("sanity")
     @Tag("regression")
-    public void tryReportToPerfectoFix(VerisoftMobileDriver driver) {
+    public void tryReportToPerfecto(VerisoftMobileDriver driver) {
         Report.info("info message");
         Report.debug("debug message");
         Report.error("error message");
