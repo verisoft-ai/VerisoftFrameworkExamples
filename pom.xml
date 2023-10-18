@@ -24,8 +24,8 @@
         <project.reporting.outputEncoding>${java.encoding}</project.reporting.outputEncoding>
 
         <maven.surefire.plugin.version>3.1.0</maven.surefire.plugin.version>
-        <verisoft.selenium4-juni5.version>0.1.19</verisoft.selenium4-juni5.version>
-        <verisoft.test-api.version>0.1.18</verisoft.test-api.version>
+        <verisoft.selenium4-juni5.version>1.0.2-RC-SNAPSHOT</verisoft.selenium4-juni5.version>
+        <verisoft.test-api.version>1.0.0-RC</verisoft.test-api.version>
         <rest.assured.version>5.3.1</rest.assured.version>
     </properties>
 
@@ -61,13 +61,13 @@
             <version>${rest.assured.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.Visual-Regression-Tracker</groupId>
+            <artifactId>sdk-java</artifactId>
+            <version>5.2.1</version>
+        </dependency>
     </dependencies>
 
-    <dependency>
-        <groupId>com.github.Visual-Regression-Tracker</groupId>
-        <artifactId>sdk-java</artifactId>
-        <version>5.2.1</version>
-    </dependency>
 
     <repositories>
         <repository>
