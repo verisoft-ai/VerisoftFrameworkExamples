@@ -14,18 +14,17 @@ import java.util.List;
  * @author Nir Gallner
  * @since August 2023
  */
-@Data
 public class EmployeesWrapper {
 
     @JsonView(Views.Mandatory.class)
-    private String status;
+    public String status;
 
     @JsonView(Views.Mandatory.class)
-    private List<Employee> data;
+    public List<Employee> data;
 
     @JsonView(Views.Optional.class)
-    private String message;
+    public String message;
 
     @JsonView(Views.Optional.class)
-    private OptionalObject optionalObject;
+    public OptionalObject optionalObject;
 }

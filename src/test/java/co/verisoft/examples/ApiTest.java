@@ -45,8 +45,7 @@ public class ApiTest {
         EmployeesWrapper employeesWrapper = objectMapper.readValue(response.getBody().asString(), EmployeesWrapper.class);
 
         // Assert that the response is successful and that the response body is not empty
-        Assertions.assertTrue(employeesWrapper.getData().size() > 0);
-
+        Assertions.assertTrue(!employeesWrapper.data.isEmpty());
     }
 
 
@@ -69,7 +68,7 @@ public class ApiTest {
         EmployeeWrapper employeesWrapper = objectMapper.readValue(response.getBody().asString(), EmployeeWrapper.class);
 
         // Assert that the response is successful and that the response body is not empty
-        Assertions.assertTrue(Objects.nonNull(employeesWrapper.getData()));
+        Assertions.assertTrue(Objects.nonNull(employeesWrapper.data));
 
     }
 
@@ -82,8 +81,8 @@ public class ApiTest {
      */
     private RequestSpecification prepareRequest(ApiRequest apiRequest) {
         RequestSpecification request = RestAssured.given();
-        request.header("Content-Type", ContentType.JSON);
-        request.header("Accept", ContentType.JSON);
+        request.header("Content-Type", ContentType.XML);
+        request.header("Accept", ContentType.XML);
         if (apiRequest.getAuthToken() != null) {
             request.header("Authorization", "Bearer " + apiRequest.getAuthToken());
         }

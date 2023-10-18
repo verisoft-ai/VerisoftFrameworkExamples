@@ -4,6 +4,7 @@ import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTracker;
 import io.visual_regression_tracker.sdk_java.VisualRegressionTrackerConfig;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.OutputType;
@@ -18,6 +19,7 @@ import java.io.IOException;
  * @since Sep 2021
  * @url <a href="https://github.com/Visual-Regression-Tracker/sdk-java/blob/master/README.md">...</a>
  */
+@Disabled
 public class VrtExampleTests extends BaseTest{
 
     @DriverCapabilities

@@ -43,19 +43,7 @@ public class AsyncOperationsTests extends BaseTest{
 
 
     @DriverCapabilities
-    private DesiredCapabilities capabilities = new DesiredCapabilities();
-
-    {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-
-        capabilities.setBrowserName("chrome");
-        capabilities.setCapability("browserVersion", "113");
-        capabilities.setCapability("driverVersion", "113");
-        options.merge(capabilities);
-    }
-
+    private ChromeOptions options = new ChromeOptions();
 
     @Test
     public void shouldInvokeAsyncOperationOnceAfterFindBy(VerisoftDriver driver) throws InterruptedException {
