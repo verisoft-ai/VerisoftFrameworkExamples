@@ -67,7 +67,7 @@ public class ExampleExtension implements
     // of code we wish to run ONLY ONCE per execution, we mark this flag and use it in the beforeAll method
     private static boolean didRun = false;
 
-
+    private static final Object lock = new Object();
     /**
      * Callback that is invoked once <em>after</em> all tests in the current
      * container.
@@ -76,17 +76,18 @@ public class ExampleExtension implements
      */
     @Override
     public void beforeAll(ExtensionContext context) {
+        synchronized (lock) {
+            // This section will run once per suite
+            if (didRun == false) {
 
-        // This section will run once per suite
-        if (didRun == false) {
+                // This will NOT be shown in some report observers (i.e extents reports), since there is no active test at this point
+                Report.info("Before Suite: This part will only be executed once per suite");
+                didRun = true;
+            }
 
-            // This will NOT be shown in some report observers (i.e extents reports), since there is no active test at this point
-            Report.info("Before Suite: This part will only be executed once per suite");
-            didRun = true;
+            // This section will run once per test class
+            Report.info("BeforeAll: This part will only be executed once per class");
         }
-
-        // This section will run once per test class
-        Report.info("BeforeAll: This part will only be executed once per class");
     }
 
 
