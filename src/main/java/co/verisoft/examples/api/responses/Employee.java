@@ -12,11 +12,10 @@ import lombok.Data;
  * @author Nir Gallner
  * @since August 2023
  */
-@Data
 public class Employee {
-    private String id;
-    private String employee_name;
-    private String employee_salary;
-    private String employee_age;
-    private String profile_image;
+    public String id;
+    public String employee_name;
+    public String employee_salary;
+    public String employee_age;
+    public String profile_image;
 }

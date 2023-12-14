@@ -30,7 +30,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 @ExtendWith(XrayPluginExtension.class)
 public class WorkingWithXrayTests extends BaseTest{
 
-
     @DriverCapabilities
     private DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -40,8 +39,6 @@ public class WorkingWithXrayTests extends BaseTest{
         options.addArguments("--headless");
 
         capabilities.setBrowserName("chrome");
-        capabilities.setCapability("browserVersion", "113");
-        capabilities.setCapability("driverVersion", "113");
         options.merge(capabilities);
     }
 

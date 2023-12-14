@@ -46,11 +46,9 @@ public class EnhancedLoactorsTest extends BaseTest {
     {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
 
         capabilities.setBrowserName("chrome");
-        capabilities.setCapability("browserVersion", "113");
-        capabilities.setCapability("driverVersion", "113");
         options.merge(capabilities);
     }
 
