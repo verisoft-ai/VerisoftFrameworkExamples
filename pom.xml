@@ -61,25 +61,7 @@
             <version>${rest.assured.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.perfecto.reporting-sdk</groupId>
-            <artifactId>reportium-java</artifactId>
-            <version>2.3.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                    <artifactId>selenium-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
     </dependencies>
-<repositories>
-    <repository>
-        <id>perfectomobile</id>
-        <name>Perfecto mobile</name>
-        <url>https://repo1.perfectomobile.com/public/repositories/maven</url>
-    </repository>
-</repositories>
     <build>
         <pluginManagement>
             <plugins>
