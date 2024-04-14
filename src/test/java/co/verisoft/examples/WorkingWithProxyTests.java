@@ -33,6 +33,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.HttpCommandExecutor;
 import org.openqa.selenium.remote.http.netty.ProxyNettyClient;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -60,7 +61,7 @@ public class WorkingWithProxyTests extends BaseTest {
 
     @Test
     @DisplayName("Working with proxy example")
-    public void testWithProxy(VerisoftMobileDriver driver) {
+    public void testWithProxy(@DriverCommandExecutor @Autowired HttpCommandExecutor commandExecutor, VerisoftMobileDriver driver) {
         driver.findElement(By.id("com.android.chrome:id/terms_accept")).click();
         WebElement e = Waits.visibilityOfElementLocated(driver, 30, By.id("com.android.chrome:id/negative_button"));
 
