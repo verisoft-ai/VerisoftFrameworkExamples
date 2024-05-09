@@ -37,6 +37,8 @@ import java.util.function.BiFunction;
  * https://github.com/SeleniumHQ/selenium/blob/selenium-4.3.0/java/src/org/openqa/selenium/remote/http/netty/NettyClient.java
  *
  * @since May 2023 (in this repo)
+ *
+ * PLEASE NOTE: the class does not exist in advanced versions of Selenium and therefore does not work properly at the moment.
  */
 public class ProxyNettyClient implements HttpClient {
 
@@ -53,13 +55,13 @@ public class ProxyNettyClient implements HttpClient {
     }
 
     private final ClientConfig config;
-    private final HttpHandler handler;
-    private final BiFunction<HttpRequest, WebSocket.Listener, WebSocket> toWebSocket;
+//    private final HttpHandler handler;
+//    private final BiFunction<HttpRequest, WebSocket.Listener, WebSocket> toWebSocket;
 
     private ProxyNettyClient(ClientConfig config) {
         this.config = Require.nonNull("HTTP client config", config);
-        this.handler = new NettyHttpHandler(config, client).with(config.filter());
-        this.toWebSocket = NettyWebSocket.create(config, client);
+//        this.handler = new NettyHttpHandler(config, client).with(config.filter());
+//        this.toWebSocket = NettyWebSocket.create(config, client);
     }
 
     /**
@@ -93,7 +95,8 @@ public class ProxyNettyClient implements HttpClient {
     @Override
     public HttpResponse execute(HttpRequest request) {
         request.addHeader("My-Extra-Header", "1111-2222-3333-4444-5555");
-        return handler.execute(request);
+      //  return handler.execute(request);
+        return null;
     }
 
     @Override
@@ -101,7 +104,8 @@ public class ProxyNettyClient implements HttpClient {
         Require.nonNull("Request to send", request);
         Require.nonNull("WebSocket listener", listener);
 
-        return toWebSocket.apply(request, listener);
+      //  return toWebSocket.apply(request, listener);
+    return null;
     }
 
     @Override
@@ -123,7 +127,7 @@ public class ProxyNettyClient implements HttpClient {
             Require.nonNull("Client config", config);
 
             if (config.baseUri() != null && "unix".equals(config.baseUri().getScheme())) {
-                return new NettyDomainSocketClient(config);
+             //   return new NettyDomainSocketClient(config);
             }
 
             return new ProxyNettyClient(config);

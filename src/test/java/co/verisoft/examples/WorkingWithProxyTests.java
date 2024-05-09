@@ -25,7 +25,6 @@ import co.verisoft.fw.selenium.drivers.factory.DriverCommandExecutor;
 import co.verisoft.fw.utils.Waits;
 import io.appium.java_client.MobileCommand;
 import io.appium.java_client.remote.AppiumCommandExecutor;
-import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -44,7 +43,7 @@ public class WorkingWithProxyTests extends BaseTest {
     private DesiredCapabilities capabilities = new DesiredCapabilities();
 
     {
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("appPackage", "com.android.chrome");
         capabilities.setCapability("appActivity", "com.google.android.apps.chrome.Main");
         capabilities.setCapability("automationName", "UIAutomator2");

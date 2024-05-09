@@ -17,19 +17,25 @@
  */
 package co.verisoft.examples.objectrepository;
 
-import co.verisoft.fw.objectrepository.ObjectReporsitoryFactory;
 import co.verisoft.fw.objectrepository.ObjectRepositoryItem;
+import co.verisoft.fw.objectrepository.PageObjectName;
+import co.verisoft.fw.pages.WebBasePage;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class ObjectRepositoryStandAloneWikipediaPageObject {
+/**
+ * A very basic web page object, using the Selenium4-Junit5 framework
+ *
+ * @author <a href="mailto:nir@verisoft.co">Nir Gallner</a>
+ * @since May 2023
+ */
+@PageObjectName
+public class SpecificObjectRepoWikipediaMainPage extends WebBasePage {
 
     @ObjectRepositoryItem(id = "WIKI-MAIN-SEARCH")
     private WebElement searchBar;
-
-    private WebDriver driver;
 
     public static final String pageUrl = "https://www.wikipedia.org/";
 
@@ -39,12 +45,15 @@ public class ObjectRepositoryStandAloneWikipediaPageObject {
      *
      * @param driver a WebDriver object to store and use
      */
-    public ObjectRepositoryStandAloneWikipediaPageObject(WebDriver driver) {
-
-        this.driver = driver;
-        ObjectReporsitoryFactory.initObjects(driver, this,"src/test/resources/objectsRepository.json");
+    public SpecificObjectRepoWikipediaMainPage(WebDriver driver,String objectRepositoryPath) {
+        super(driver,objectRepositoryPath);
     }
 
+
+    @Override
+    public boolean isOnPage() {
+        return searchBar.isDisplayed();
+    }
 
 
     public ObjectRepoWikipediaResultPage searchForTerm(String term){
@@ -54,7 +63,7 @@ public class ObjectRepositoryStandAloneWikipediaPageObject {
     }
 
 
-    public ObjectRepositoryStandAloneWikipediaPageObject gotoPage(){
+    public SpecificObjectRepoWikipediaMainPage gotoPage(){
         driver.get(pageUrl);
         return this;
     }

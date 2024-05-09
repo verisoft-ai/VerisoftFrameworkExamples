@@ -24,8 +24,8 @@
         <project.reporting.outputEncoding>${java.encoding}</project.reporting.outputEncoding>
 
         <maven.surefire.plugin.version>3.1.0</maven.surefire.plugin.version>
-        <verisoft.selenium4-juni5.version>1.0.1-SNAPSHOT</verisoft.selenium4-juni5.version>
-        <verisoft.test-api.version>1.0.1-SNAPSHOT</verisoft.test-api.version>
+        <verisoft.selenium4-juni5.version>1.0.0</verisoft.selenium4-juni5.version>
+        <verisoft.test-api.version>1.0.0</verisoft.test-api.version>
         <rest.assured.version>5.3.1</rest.assured.version>
     </properties>
 

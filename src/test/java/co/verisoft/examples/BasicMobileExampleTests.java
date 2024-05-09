@@ -36,9 +36,6 @@ import org.openqa.selenium.WebElement;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
-
-import static io.appium.java_client.remote.AndroidMobileCapabilityType.RESET_KEYBOARD;
-import static io.appium.java_client.remote.AndroidMobileCapabilityType.UNICODE_KEYBOARD;
 import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 
 @Execution(ExecutionMode.SAME_THREAD)
@@ -58,10 +55,8 @@ public class BasicMobileExampleTests extends BaseTest {
             .setNewCommandTimeout(Duration.ofMinutes(5))
             .setAppActivity(".MainActivity")
             .setAppPackage("io.water.hydration")
-            .setAutomationName("Flutter")
-            .amend(UNICODE_KEYBOARD, true)
-            .amend(RESET_KEYBOARD, true);
-    }
+            .setAutomationName("Flutter");
+   }
 
 
 
