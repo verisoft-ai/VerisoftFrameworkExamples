@@ -18,15 +18,20 @@
 package co.verisoft.examples.dependencyinjection;
 
 
+import io.appium.java_client.MobileCommand;
+import io.appium.java_client.remote.AppiumCommandExecutor;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.HttpCommandExecutor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 /**
@@ -62,5 +67,17 @@ public class CapabiitiesInjection {
     @Bean("firefox")
     public Capabilities getFirefoxCapabilities(){
         return new FirefoxOptions();
+    }
+
+    @Bean("grid1")
+    public URL getSeleniumGrid1() throws MalformedURLException {
+        return new URL("http://95.216.217.133:4444/wd/hub/");
+    }
+
+    @Bean("commandExecutor")
+    public HttpCommandExecutor getCommandExecutor() throws MalformedURLException {
+        URL serverUrl = new URL("http://127.0.0.1:4723/wd/hub/");
+        AppiumCommandExecutor executor = new AppiumCommandExecutor(MobileCommand.commandRepository, serverUrl);
+        return executor;
     }
 }
