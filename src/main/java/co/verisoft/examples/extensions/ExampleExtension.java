@@ -18,7 +18,6 @@
 package co.verisoft.examples.extensions;
 
 
-import co.verisoft.fw.extensions.jupiter.ExtensionUtilities;
 import co.verisoft.fw.report.observer.Report;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.extension.*;
@@ -137,7 +136,6 @@ public class ExampleExtension implements
      */
     @Override
     public void beforeEach(ExtensionContext context) {
-        Object [] args=  ExtensionUtilities.getTestMethodArgumentsFromExtensionContext(context);
         // This will NOT be shown in some report observers (i.e extents reports), since there is no active test at this point
         Report.info("BeforeEach: This part will be executed before each test and before test execution");
     }
