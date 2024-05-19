@@ -136,7 +136,6 @@ public class ExampleExtension implements
      */
     @Override
     public void beforeEach(ExtensionContext context) {
-
         // This will NOT be shown in some report observers (i.e extents reports), since there is no active test at this point
         Report.info("BeforeEach: This part will be executed before each test and before test execution");
     }

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "chromeJson",
+    "caps": {
+      "browserName": "chrome"
+    }
+  },
+  {
+    "name": "edgeJson",
+    "caps": {
+      "browserName": "MicrosoftEdge"
+    }
+  },
+  {
+    "name": "mobileJson",
+    "caps": {
+      "platformName": "Android",
+      "platformVersion": "14",
+      "deviceName": "ABCD123",
+      "automationName": "UiAutomator2",
+      "appPackage": "APP.PACKAGE",
+      "appActivity": "APP.ACTIVITY"
+    }
+  }
+  ]

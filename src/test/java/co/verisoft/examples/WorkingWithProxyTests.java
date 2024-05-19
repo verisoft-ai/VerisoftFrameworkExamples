@@ -32,6 +32,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.HttpCommandExecutor;
 import org.openqa.selenium.remote.http.netty.ProxyNettyClient;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.net.MalformedURLException;
 import java.net.URL;
