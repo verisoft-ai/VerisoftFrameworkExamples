@@ -12,14 +12,14 @@
     }
   },
   {
-    "name": "mobileLeumi",
+    "name": "mobileJson",
     "caps": {
       "platformName": "Android",
       "platformVersion": "14",
-      "deviceName": "R58TB0ECJ4R",
+      "deviceName": "ABCD123",
       "automationName": "UiAutomator2",
-      "appPackage": "com.leumi.leumiwallet",
-      "appActivity": "com.ngsoft.app.ui.LMTestSettingActivity"
+      "appPackage": "APP.PACKAGE",
+      "appActivity": "APP.ACTIVITY"
     }
   }
   ]
