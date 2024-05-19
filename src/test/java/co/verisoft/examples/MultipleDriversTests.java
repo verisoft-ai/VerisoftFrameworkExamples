@@ -32,8 +32,8 @@ public class MultipleDriversTests {
     {
         options.addArguments("--headless");
     }
-//    @DriverUrl
-//    String url="http://95.216.217.133:4444/wd/hub/";
+    @DriverUrl
+    String url="http://95.216.217.133:4444/wd/hub/";
 
     @Test
     public void twoDriversWithOnlyBeanCapabilities(
@@ -79,14 +79,15 @@ public class MultipleDriversTests {
     }
 
     @Test
-    public void twoDriversWithOnlyOneCapabilities(
-            @DriverCapabilities("chrome")  VerisoftDriver chromeDriver,
-            VerisoftDriver edgeDriver) {
+    public void twoDriversWithOnlyOneCapabilitiesWithDriversNames(
+           @DriverName("chrome bean") @DriverCapabilities("chrome")  VerisoftDriver chromeDriver,
+           @DriverName("edge field")  VerisoftDriver edgeDriver) {
         chromeDriver.get("http://www.google.com");
         String title = chromeDriver.getTitle();
         Asserts.assertEquals("Google", title, "We are in Google homepage in chrome");
-        edgeDriver.get("http://www.google.com");
-        title = edgeDriver.getTitle();
+        WebDriver edgeDriver1=VerisoftDriverManager.getDriver("edge field");
+        edgeDriver1.get("http://www.google.com");
+        title = edgeDriver1.getTitle();
         Asserts.assertEquals("Google", title, "We are in Google homepage in edge");
 
     }
@@ -117,46 +118,25 @@ public class MultipleDriversTests {
     }
 
     @Test
-    public void oneMobileDriverWithCapabilitiesAndProxyCommandExecutor(
-            @DriverCapabilities("mobileLeumi") @DriverUrl("http://127.0.0.1:4723/wd/hub/") VerisoftMobileDriver leumiDriver)
+    public void oneMobileDriverWithCapabilitiesAndURL(
+            @DriverCapabilities("mobileJson") @DriverUrl("http://127.0.0.1:4723/wd/hub/") VerisoftMobileDriver leumiDriver)
     {
-        leumiDriver.findElement(By.id("com.leumi.leumiwallet:id/setting_radio_mesira")).click();
+        leumiDriver.findElement(By.id("SOME_ID")).click();
     }
 
     @Test
     public void oneDriverWithCapabilitiesAndProxyCommandExecutor(
-            @DriverCapabilities("mobileLeumi") @DriverCommandExecutor("org.openqa.selenium.remote.http.netty.ProxyNettyClient$Factory") VerisoftMobileDriver chromeDriver)
+            @DriverCapabilities("mobileJson") @DriverCommandExecutor("org.openqa.selenium.remote.http.netty.ProxyNettyClient$Factory") VerisoftMobileDriver chromeDriver)
     {
-        chromeDriver.findElement(By.id("com.leumi.leumiwallet:id/setting_radio_mesira")).click();
+        chromeDriver.findElement(By.id("SOME_ID")).click();
     }
 
     @Test
     public void oneDriverWithCapabilitiesAndProxyCommandExecutorBean(
-            @DriverCapabilities("mobileLeumi") @DriverCommandExecutor("commandExecutor") VerisoftMobileDriver chromeDriver)
+            @DriverCapabilities("mobileJson") @DriverCommandExecutor("commandExecutor") VerisoftMobileDriver chromeDriver)
     {
-        chromeDriver.findElement(By.id("com.leumi.leumiwallet:id/setting_radio_mesira")).click();
+        chromeDriver.findElement(By.id("SOME_ID")).click();
     }
-
-    @Test
-    public void getDriver(@DriverCapabilities("mobileLeumi") @DriverUrl("http://127.0.0.1:4723/wd/hub/") VerisoftMobileDriver driver)
-    {
-        Asserts.assertEquals(driver.getCapabilities(),new VerisoftDriver((WebDriver)VerisoftDriverManager.getDriver()).getCapabilities(),"driver from map is ok");
-    }
-
-
-    @Test
-    public void getDriver(VerisoftDriver driver)
-    {
-        Asserts.assertEquals(driver.getCapabilities(),new VerisoftDriver((WebDriver)VerisoftDriverManager.getDriver()).getCapabilities(),"driver from map is ok");
-    }
-
-    @Test
-    public void getDriverByName(@DriverName("my driver name")VerisoftDriver driver, VerisoftDriver driver2)
-    {
-        Asserts.assertEquals(driver.getCapabilities(),new VerisoftDriver((WebDriver)VerisoftDriverManager.getDriver("my driver name")).getCapabilities(),"driver from map is ok");
-    }
-
-
 
 }
 
