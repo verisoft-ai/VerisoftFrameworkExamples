@@ -29,7 +29,6 @@ import org.openqa.selenium.remote.http.*;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
-import java.util.function.BiFunction;
 
 /**
  * This code was copied from https://docs.experitest.com/display/TE/Appium+Selenium+Proxy
@@ -81,9 +80,9 @@ public class ProxyNettyClient implements HttpClient {
                         .setWebSocketMaxBufferSize(Integer.MAX_VALUE)
                         .setWebSocketMaxFrameSize(Integer.MAX_VALUE)
                         .setNettyTimer(TIMER)
-                        .setRequestTimeout(toClampedInt(config.readTimeout().toMillis()))
-                        .setConnectTimeout(toClampedInt(config.connectionTimeout().toMillis()))
-                        .setReadTimeout(toClampedInt(config.readTimeout().toMillis()))
+                        .setRequestTimeout(config.readTimeout())
+                        .setConnectTimeout(config.connectionTimeout())
+                        .setReadTimeout(config.readTimeout())
                         .setFollowRedirect(true)
                         .setUseProxyProperties(true)
                         .setUseProxySelector(false)
