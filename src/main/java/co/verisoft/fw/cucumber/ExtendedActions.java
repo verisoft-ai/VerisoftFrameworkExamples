@@ -6,4 +6,6 @@ package co.verisoft.fw.cucumber;
 public interface ExtendedActions {
 
     void performAction(String actionId);
+    void foundOnPage(String actionId);
+    void receivingResult(String actionId);
 }

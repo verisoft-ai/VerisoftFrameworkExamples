@@ -16,7 +16,7 @@ public class CucumberSpringConfig {
     @Bean
     @Profile("UI")
     public BaseDictionary baseUIDictionaryImpl() {
-        return new BaseDictionaryImpl();
+        return new BaseUIDictionaryImpl();
     }
 
     /**
@@ -24,7 +24,5 @@ public class CucumberSpringConfig {
      */
     @Bean
     @Profile("API")
-    public APIDictionary baseAPIDictionaryImpl() {
-        return new BaseDictionaryImpl();
-    }
+    public APIDictionary baseAPIDictionaryImpl() {return new BaseAPIDictionaryImpl();}
 }
