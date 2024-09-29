@@ -14,12 +14,17 @@ public class ExampleCucumberTest extends CucumberBaseTest {
 
     /**
      * Executes a test scenario with a specified feature file and dictionary.
+     *            The default -
+     *                      package - co/verisoft/fw/cucumber
      */
     @Test
     public void exampleTest1() { executeTest(new Scenario("example of UI scenario test"),new FeatureFile("exampleCucumber"),new Dictionary("UI"));}
 
     /**
      * Executes a test scenario with a specified feature file.
+     *      The default -
+     *                dictionary - UI,
+     *                package - co/verisoft/fw/cucumber
      */
     @Test
     public void exampleTest2() {
@@ -28,6 +33,10 @@ public class ExampleCucumberTest extends CucumberBaseTest {
 
     /**
      * Executes a test scenario.
+     * The default -
+     *          featureFile - exampleCucumber,
+     *          dictionary - UI,
+     *          package - co/verisoft/fw/cucumber
      */
     @Test
     public void exampleTest3() {
@@ -36,6 +45,8 @@ public class ExampleCucumberTest extends CucumberBaseTest {
 
     /**
      * Executes a test scenario.
+     * The default -
+     *               package - co/verisoft/fw/cucumber
      */
     @Test
     public void exampleTest4() { executeTest(new Scenario("example scenario API test"),new FeatureFile("exampleCucumber"), new Dictionary("API"));}
