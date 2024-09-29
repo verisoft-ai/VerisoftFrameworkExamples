@@ -127,6 +127,5 @@ public class BaseUIDictionaryImpl implements BaseDictionary,ExtendedActions{
     @Override
     public void receivingResult(String actionId) {
         System.out.println("Implementation of function receivingResult");
-
     }
 }

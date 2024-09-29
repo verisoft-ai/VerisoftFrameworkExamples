@@ -16,16 +16,14 @@ public class ExampleCucumberTest extends CucumberBaseTest {
      * Executes a test scenario with a specified feature file and dictionary.
      */
     @Test
-    public void exampleTest1() {
-            executeTest(new Scenario("example scenario test"),new FeatureFile("example"),new Dictionary("UI"));
-    }
+    public void exampleTest1() { executeTest(new Scenario("example of UI scenario test"),new FeatureFile("exampleCucumber"),new Dictionary("UI"));}
 
     /**
      * Executes a test scenario with a specified feature file.
      */
     @Test
     public void exampleTest2() {
-        executeTest(new Scenario("example scenario test"),new FeatureFile("example"));
+        executeTest(new Scenario("example of UI scenario test"),new FeatureFile("exampleCucumber"));
     }
 
     /**
@@ -33,6 +31,12 @@ public class ExampleCucumberTest extends CucumberBaseTest {
      */
     @Test
     public void exampleTest3() {
-        executeTest(new Scenario("example scenario test"));
+        executeTest(new Scenario("example scenario  that use with mix of dictionaries test"));
     }
+
+    /**
+     * Executes a test scenario.
+     */
+    @Test
+    public void exampleTest4() { executeTest(new Scenario("example scenario API test"),new FeatureFile("exampleCucumber"), new Dictionary("API"));}
 }

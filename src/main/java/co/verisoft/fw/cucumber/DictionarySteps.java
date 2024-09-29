@@ -24,9 +24,7 @@ public DictionarySteps(ExtendedActions extendedActions) {
  public void foundOnPage(String action) {extendedActions.foundOnPage(action);}
 
  @When("User perform action {string}")
- public void performAction(String action) {
-  extendedActions.performAction(action);
- }
+ public void performAction(String action) {extendedActions.performAction(action);}
 
  @Then("User expect to receive result of {string}")
  public void receivingResult(String action) {extendedActions.receivingResult(action);}

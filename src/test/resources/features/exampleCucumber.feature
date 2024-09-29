@@ -1,7 +1,7 @@
-Feature: exampleScenario
+Feature: exampleCucumber
 
   #example of UI scenario test
-  Scenario: example scenario test
+  Scenario: example of UI scenario test
     Given user on "login" page
     When user taps on "login" button
     Then user should see the title "Welcome Home"
@@ -23,7 +23,7 @@ Feature: exampleScenario
     Then User expect to receive result of "{string}"
 
   #example of scenario test that use with mix of dictionaries
-  Scenario: example scenario specific test
+  Scenario: example scenario  that use with mix of dictionaries test
     #spesific dictionary
     Given User found on page "login"
     #UI dictionary
