@@ -6,7 +6,6 @@ import java.util.Map;
 /**
  * BaseDictionaryImpl class implements BaseUIDictionary and specific dictionary.
  * Provides implementations for user interactions, API element manipulation.
- * Configured with @Configuration for Spring IoC container.
  */
 public class BaseAPIDictionaryImpl implements APIDictionary{
 
