@@ -1,15 +1,17 @@
 package co.verisoft.examples;
+import co.verisoft.examples.dependencyinjection.CapabiitiesInjection;
 import co.verisoft.fw.CustomReportPortalExtension;
 import co.verisoft.fw.asserts.SoftAssertsScreenShot;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
-import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.springframework.test.context.ContextConfiguration;
 
 @ExtendWith({CustomReportPortalExtension.class})
+@ContextConfiguration(classes = {CapabiitiesInjection.class})
 public class SoftAssertWithScreenshotTest extends BaseTest{
     /**
      If no specific capabilities are defined, the driver will use this capabilities
@@ -19,11 +21,6 @@ public class SoftAssertWithScreenshotTest extends BaseTest{
     {
         options.addArguments("--headless");
     }
-    /**
-     If no specific URL are defined, the driver will use this URL
-     */
-    @DriverUrl
-    String url="http://1.2.3.4:4444/wd/hub/";
 
 
     @DriverCapabilities
