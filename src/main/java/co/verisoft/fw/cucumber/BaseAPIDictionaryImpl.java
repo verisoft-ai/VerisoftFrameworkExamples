@@ -8,7 +8,6 @@ import java.util.Map;
  * Provides implementations for user interactions, API element manipulation.
  * Configured with @Configuration for Spring IoC container.
  */
-@Configuration
 public class BaseAPIDictionaryImpl implements APIDictionary{
 
     @Override

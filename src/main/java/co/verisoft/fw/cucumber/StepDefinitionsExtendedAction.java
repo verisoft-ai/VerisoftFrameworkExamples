@@ -3,19 +3,18 @@ package co.verisoft.fw.cucumber;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
  * DictionarySteps class implements the ExtendedActions dictionary and provides step definitions for Cucumber tests.
  */
-public class DictionarySteps implements ExtendedActions {
+public class StepDefinitionsExtendedAction implements ExtendedActions {
 
 private final ExtendedActions extendedActions;
 
  @Autowired
-public DictionarySteps(ExtendedActions extendedActions) {
+public StepDefinitionsExtendedAction(ExtendedActions extendedActions) {
  this.extendedActions = extendedActions;
 }
 

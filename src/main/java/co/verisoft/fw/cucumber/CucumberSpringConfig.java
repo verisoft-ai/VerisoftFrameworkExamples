@@ -6,8 +6,6 @@ import org.springframework.context.annotation.*;
  * CucumberSpringConfig class provides Spring configuration for Cucumber tests.
  * It defines beans for different dictionaries and return the implementations
  */
-
-@Configuration
 public class CucumberSpringConfig {
 
     /**

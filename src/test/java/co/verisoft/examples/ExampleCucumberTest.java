@@ -13,18 +13,16 @@ import org.junit.jupiter.api.Test;
 public class ExampleCucumberTest extends CucumberBaseTest {
 
     /**
-     * Executes a test scenario with a specified feature file and dictionary.
-     *            The default -
-     *                      package - co/verisoft/fw/cucumber
-     */
+    * The defaults values for the scenario:
+    * package - co.verisoft.fw.cucumber
+    */
     @Test
     public void exampleTest1() { executeTest(new Scenario("example of UI scenario test"),new FeatureFile("exampleCucumber"),new Dictionary("UI"));}
 
     /**
-     * Executes a test scenario with a specified feature file.
-     *      The default -
-     *                dictionary - UI,
-     *                package - co/verisoft/fw/cucumber
+     * The defaults values for the scenario:
+     * package - co.verisoft.fw.cucumber
+     * dictionary - UI (from application.properties)
      */
     @Test
     public void exampleTest2() {
@@ -32,21 +30,19 @@ public class ExampleCucumberTest extends CucumberBaseTest {
     }
 
     /**
-     * Executes a test scenario.
-     * The default -
-     *          featureFile - exampleCucumber,
-     *          dictionary - UI,
-     *          package - co/verisoft/fw/cucumber
+     * The defaults values for the scenario:
+     * package - co.verisoft.fw.cucumber
+     * dictionary - UI (from application.properties)
+     * featureFile- examplecucumber (extracted from file name)
      */
     @Test
     public void exampleTest3() {
-        executeTest(new Scenario("example scenario  that use with mix of dictionaries test"));
+        executeTest(new Scenario("example scenario that use with mix of dictionaries test"));
     }
 
     /**
-     * Executes a test scenario.
-     * The default -
-     *               package - co/verisoft/fw/cucumber
+     * The defaults values for the scenario:
+     * package - co.verisoft.fw.cucumber
      */
     @Test
     public void exampleTest4() { executeTest(new Scenario("example scenario API test"),new FeatureFile("exampleCucumber"), new Dictionary("API"));}

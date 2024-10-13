@@ -4,9 +4,7 @@ import org.springframework.context.annotation.*;
 /**
  * BaseDictionaryImpl class implements APIDictionary.
  * Provides implementations for user interactions, UI element manipulation, API actions, and response verification.
- * Configured with @Configuration for Spring IoC container.
  */
-@Configuration
 public class BaseUIDictionaryImpl implements BaseDictionary,ExtendedActions{
 
     @Override
