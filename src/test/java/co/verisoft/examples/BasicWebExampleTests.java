@@ -25,15 +25,17 @@ import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
 import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
+import io.cloudbeat.junit.CbJunitExtension;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-
+import static io.cloudbeat.junit.CbJunitExtension.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Locale;
@@ -101,6 +103,15 @@ public class BasicWebExampleTests extends BaseTest {
 
         Asserts.assertFalse(resultPage.getPageTitle().toLowerCase(Locale.ROOT)
                 .contains(phraseToSearch.toLowerCase()), "Title should containt the pharse " + phraseToSearch);
+
+    }
+
+
+    @Test
+    public void testCloudBeat(VerisoftDriver driver) throws InterruptedException {
+        //wrapWebDriver(driver);
+        driver.get("https://www.wikipedia.org/");
+        Thread.sleep(8000);
 
     }
 }
