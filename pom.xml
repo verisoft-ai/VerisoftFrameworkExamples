@@ -30,7 +30,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
+         <dependency>
             <groupId>co.verisoft</groupId>
             <artifactId>Selenium4-Junit5</artifactId>
             <version>${verisoft.selenium4-junit5.version}</version>

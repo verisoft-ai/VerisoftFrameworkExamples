@@ -113,11 +113,6 @@ public class BaseUIDictionaryImpl implements BaseDictionary,ExtendedActions{
     }
 
     @Override
-    public void reportInfo(String text) {
-        System.out.println("Implementation of function reportInfo");
-    }
-
-    @Override
     public void performAction(String actionId) {
         System.out.println("Implementation of function performAction");
     }
