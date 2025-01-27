@@ -1,5 +1,5 @@
 package co.verisoft.fw.cucumber;
-import org.springframework.context.annotation.*;
+
 
 /**
  * BaseDictionaryImpl class implements APIDictionary.

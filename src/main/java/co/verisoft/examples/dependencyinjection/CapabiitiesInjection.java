@@ -69,9 +69,9 @@ public class CapabiitiesInjection {
         return new FirefoxOptions();
     }
 
-    @Bean("grid1")
+    @Bean("grid")
     public URL getSeleniumGrid1() throws MalformedURLException {
-        return new URL("http://1.2.3.4:4444/wd/hub/");
+        return new URL("http://95.216.217.133:4444/");
     }
 
     @Bean("commandExecutor")
