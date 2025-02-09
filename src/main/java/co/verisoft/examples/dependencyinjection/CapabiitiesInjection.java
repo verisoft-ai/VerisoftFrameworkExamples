@@ -70,8 +70,8 @@ public class CapabiitiesInjection {
     }
 
     @Bean("grid")
-    public URL getSeleniumGrid1() throws MalformedURLException {
-        return new URL("http://95.216.217.133:4444/");
+    public URL getSeleniumGrid() throws MalformedURLException {
+        return new URL("http://1.2.3.1:4444/wd/hub/");
     }
 
     @Bean("commandExecutor")
