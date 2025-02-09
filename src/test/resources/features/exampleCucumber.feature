@@ -41,4 +41,4 @@ Feature: exampleCucumber
   Scenario: example scenario  that use with parametrized cucumber params
     When user report the message "<username>"
     When user report the message "<password>"
-    When user report the message "<age>"
+    When user report the message "<price>"
