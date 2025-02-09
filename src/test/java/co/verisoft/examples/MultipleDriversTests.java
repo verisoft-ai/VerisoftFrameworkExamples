@@ -38,7 +38,7 @@ public class MultipleDriversTests {
      If no specific URL are defined, the driver will use this URL
      */
     @DriverUrl
-    String url="http://95.216.217.133:4444/";
+    String url="http://1.2.3.4:4444/wd/hub/";
 
     /**
      *
