@@ -9,7 +9,10 @@ import co.verisoft.fw.selenium.junit.extensions.networkExtension.NetworkExtensio
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.v122.network.model.Request;
+import org.openqa.selenium.devtools.v122.network.model.Response;
 import org.springframework.test.context.ContextConfiguration;
+import java.util.List;
 
 @ExtendWith({CustomReportPortalExtension.class})
 @ContextConfiguration(classes = {CapabiitiesInjection.class})
@@ -22,12 +25,12 @@ public class NetworkExtensionTest extends BaseTest {
     @Test
     public void retrieveNetworkCallsByObjectAndAtTheEndFail(VerisoftDriver driver1, VerisoftDriver driver2) {
         driver1.get("https:/google.com");
-        Network.getLastRequest(driver1);
+        Request req =Network.getLastRequest(driver1);
         driver2.get("https:/google.com");
-        Network.getLastRequest(driver2);
+        req =Network.getLastRequest(driver2);
         Network.getLastRequest(driver1);
-        Network.getAllResponses(driver1);
-        Network.getNumOfLastRequests(driver1,5);
+        List<Response> listRes = Network.getAllResponses(driver1);
+        List<Request> listReq = Network.getNumOfLastRequests(driver1,5);
         Network.getNumOfLastResponses(driver1,3);
         Asserts.assertTrue(false, "false");
     }
