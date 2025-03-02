@@ -1,5 +1,4 @@
 package co.verisoft.fw.cucumber;
-import org.springframework.context.annotation.*;
 
 import java.util.Map;
 

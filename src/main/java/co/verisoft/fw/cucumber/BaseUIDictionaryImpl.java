@@ -1,5 +1,5 @@
 package co.verisoft.fw.cucumber;
-import org.springframework.context.annotation.*;
+
 
 /**
  * BaseDictionaryImpl class implements APIDictionary.
@@ -114,7 +114,7 @@ public class BaseUIDictionaryImpl implements BaseDictionary,ExtendedActions{
 
     @Override
     public void reportInfo(String text) {
-        System.out.println("Implementation of function reportInfo");
+        System.out.println("report info: "+text);
     }
 
     @Override
