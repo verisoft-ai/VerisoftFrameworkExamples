@@ -118,7 +118,7 @@ public class MultipleDriversTests {
      */
     @Test
     public void oneDriverWithCapabilitiesAndURLBean(
-            @DriverCapabilities("chrome")  @DriverUrl("grid1") VerisoftDriver chromeDriver) {
+            @DriverCapabilities("chrome")  @DriverUrl("grid") VerisoftDriver chromeDriver) {
         chromeDriver.get("http://www.google.com");
         String title = chromeDriver.getTitle();
         Asserts.assertEquals("Google", title, "We are in Google homepage in chrome");
