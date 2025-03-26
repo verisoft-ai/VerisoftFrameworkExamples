@@ -37,4 +37,8 @@ Feature: exampleCucumber
     #UI dictionary
     Then user should see the title "Welcome Home"
 
-
+  #example of scenario test that use with parametrized cucumber params
+  Scenario: example scenario  that use with parametrized cucumber params
+    When user report the message "<username>"
+    When user report the message "<password>"
+    When user report the message "<price>"
