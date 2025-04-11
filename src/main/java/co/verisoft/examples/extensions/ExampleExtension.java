@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ public class ExampleExtension implements
     public void beforeAll(ExtensionContext context) {
         synchronized (lock) {
             // This section will run once per suite
-            if (didRun == false) {
+            if (!didRun) {
 
                 // This will NOT be shown in some report observers (i.e extents reports), since there is no active test at this point
                 Report.info("Before Suite: This part will only be executed once per suite");

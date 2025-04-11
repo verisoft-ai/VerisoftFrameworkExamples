@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ import java.net.URL;
 public class WorkingWithProxyTests extends BaseTest {
 
     @DriverCapabilities
-    private DesiredCapabilities capabilities = new DesiredCapabilities();
+    private final DesiredCapabilities capabilities = new DesiredCapabilities();
 
     {
         capabilities.setCapability("platformName", "Android");
@@ -50,7 +50,7 @@ public class WorkingWithProxyTests extends BaseTest {
     }
 
     @DriverCommandExecutor
-    private HttpCommandExecutor commandExecutor = new AppiumCommandExecutor(
+    private final HttpCommandExecutor commandExecutor = new AppiumCommandExecutor(
             MobileCommand.commandRepository, new URL("http://127.0.0.1:4723/wd/hub/"), new ProxyNettyClient.Factory());
 
 
