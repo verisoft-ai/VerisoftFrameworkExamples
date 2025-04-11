@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 public class RetryTests extends BaseTest{
 
     @DriverCapabilities
-    private DesiredCapabilities capabilities = new DesiredCapabilities();
+    private final DesiredCapabilities capabilities = new DesiredCapabilities();
     {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
@@ -55,7 +55,7 @@ public class RetryTests extends BaseTest{
         Retry retry = new Retry(driver, 3, 1500, TimeUnit.MILLISECONDS);
         retry.attempt(new Attemptable() {
             @Override
-            public void attempt() throws Throwable {
+            public void attempt() {
                 //replace string with "Test automations" to see the retry in action
                 if (driver.getTitle().contains("Test automation"))
                     return;

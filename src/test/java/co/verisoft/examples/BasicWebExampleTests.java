@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import co.verisoft.fw.extentreport.Description;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
-import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
+import co.verisoft.fw.utils.Waits;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
@@ -35,32 +35,36 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Locale;
 
 @Execution(ExecutionMode.CONCURRENT)
 public class BasicWebExampleTests extends BaseTest {
 
     @DriverCapabilities
-    private ChromeOptions capabilities = new ChromeOptions();
+    private final ChromeOptions capabilities = new ChromeOptions();
 
 
-//        @DriverUrl
+    //        @DriverUrl
 //    private URL url = new URL("http://65.1.2.3:4444/wd/hub");
-    public BasicWebExampleTests() throws MalformedURLException {
+    public BasicWebExampleTests() {
     }
 
 
     @Test
     @DisplayName("Search Wikipedia test")
-    public void searchWikipedia(VerisoftDriver driver) throws InterruptedException {
+    public void searchWikipedia(VerisoftDriver driver) {
         driver.get("https://www.wikipedia.org/");
         driver.findElement(By.id("searchInput")).sendKeys("Test Automation");
         new Actions(driver).sendKeys(Keys.ENTER).build().perform();
-        String phraseToAssert = "Test automation";
+        String phraseToAssert = "Test Automation";
+        Waits.titleContains(driver, 10, "Test automation");
+        String pageTitle = driver.getTitle();
 
         // Note!! Verisoft Assert
-        Asserts.assertTrue(driver.getTitle().contains(phraseToAssert), "Page should contain the pharase " + phraseToAssert);
+        Asserts.assertTrue(pageTitle.toLowerCase(Locale.ROOT)
+                .contains(phraseToAssert
+                        .toLowerCase(Locale.ROOT)), "Page should contain the pharase " + phraseToAssert
+                + " but was " + pageTitle);
 
         Report.info("Got to this point - We are on the right page");
     }
@@ -79,8 +83,9 @@ public class BasicWebExampleTests extends BaseTest {
         Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");
         Report.info("We reaeched the result page");
 
-        Asserts.assertTrue(resultPage.getPageTitle().toLowerCase(Locale.ROOT)
-                .contains(phraseToSearch.toLowerCase()), "Title should containt the pharse " + phraseToSearch);
+        Asserts.assertTrue(resultPage.getPageTitle()
+                        .toLowerCase(Locale.ROOT).contains(phraseToSearch.toLowerCase())
+                , "Title should containt the pharse " + phraseToSearch);
 
     }
 
@@ -88,7 +93,7 @@ public class BasicWebExampleTests extends BaseTest {
     @Test
     @DisplayName("Search Wikipedia with Page Objects - Failed Test")
     @Description("This is a description of the test")
-    public void searchWikipediaWithPageObjectsFail(VerisoftDriver driver) throws InterruptedException {
+    public void searchWikipediaWithPageObjectsFail(VerisoftDriver driver) {
 
         String phraseToSearch = "Test Automation";
 

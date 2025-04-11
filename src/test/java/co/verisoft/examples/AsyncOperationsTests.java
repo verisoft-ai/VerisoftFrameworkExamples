@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ public class AsyncOperationsTests extends BaseTest{
 
 
     @DriverCapabilities
-    private ChromeOptions options = new ChromeOptions();
+    private final ChromeOptions options = new ChromeOptions();
 
     @Test
     public void shouldInvokeAsyncOperationOnceAfterFindBy(VerisoftDriver driver) throws InterruptedException {

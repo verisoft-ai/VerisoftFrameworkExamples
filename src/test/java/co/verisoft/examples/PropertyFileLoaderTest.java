@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@ public class PropertyFileLoaderTest extends BaseTest{
     private URL url;
 
     @DriverCapabilities
-    private DesiredCapabilities capabilities = new DesiredCapabilities();
+    private final DesiredCapabilities capabilities = new DesiredCapabilities();
     {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
@@ -64,14 +64,14 @@ public class PropertyFileLoaderTest extends BaseTest{
 
     @Test
     @DisplayName("Injected URL")
-    public void injectedURL(VerisoftDriver driver) throws InterruptedException {
+    public void injectedURL(VerisoftDriver driver) {
         driver.get("https://www.wikipedia.org/");
         Report.info("Loaded page from a url found in application.properties");
     }
 
     @Test
     @DisplayName("Custom Property")
-    public void customProperty(VerisoftDriver driver) throws InterruptedException {
+    public void customProperty(VerisoftDriver driver) {
         Assertions.assertEquals(customProperty.getCustomProperty(), "Hello");
     }
 }
