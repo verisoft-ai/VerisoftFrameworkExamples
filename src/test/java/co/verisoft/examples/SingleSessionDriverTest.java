@@ -13,10 +13,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class SingleSessionDriverTest extends BaseTest{
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     @DriverCapabilities
-    private DesiredCapabilities capabilities = new DesiredCapabilities();
+    private final DesiredCapabilities capabilities = new DesiredCapabilities();
 
     {
         ChromeOptions options = new ChromeOptions();

@@ -35,9 +35,7 @@ public class MultipleDriversTests {
     {
         options.addArguments("--headless");
     }
-    /**
-     If no specific URL are defined, the driver will use this URL
-     */
+//    If no specific URL are defined, the driver will use this URL
 //    @DriverUrl
 //    String url="http://1.2.3.4:4444/wd/hub/";
 
@@ -48,7 +46,7 @@ public class MultipleDriversTests {
     @Test
     public void twoDriversWithOnlyBeanCapabilities(
             @DriverCapabilities("chrome") VerisoftDriver chromeDriver,
-            @DriverCapabilities("edge") VerisoftDriver edgeDriver) throws InterruptedException {
+            @DriverCapabilities("edge") VerisoftDriver edgeDriver) {
         chromeDriver.get("http://www.google.com");
         String title = chromeDriver.getTitle();
         Asserts.assertEquals("Google", title, "We are in Google homepage in chrome");
@@ -65,7 +63,7 @@ public class MultipleDriversTests {
     @Test
     public void twoDriversWithOnlyJsonCapabilities(
             @DriverCapabilities("chromeJson") VerisoftDriver chromeDriver,
-            @DriverCapabilities("edgeJson") VerisoftDriver edgeDriver) throws InterruptedException {
+            @DriverCapabilities("edgeJson") VerisoftDriver edgeDriver) {
         chromeDriver.get("http://www.google.com");
         String title = chromeDriver.getTitle();
         Asserts.assertEquals("Google", title, "We are in Google homepage in chrome");
@@ -82,7 +80,7 @@ public class MultipleDriversTests {
     @Test
     public void twoDriversWithBeanAndJsonCapabilities(
             @DriverCapabilities("chromeJson") VerisoftDriver chromeDriver,
-            @DriverCapabilities("edge") VerisoftDriver edgeDriver) throws InterruptedException {
+            @DriverCapabilities("edge") VerisoftDriver edgeDriver) {
         chromeDriver.get("http://www.google.com");
         String title = chromeDriver.getTitle();
         Asserts.assertEquals("Google", title, "We are in Google homepage in chrome");

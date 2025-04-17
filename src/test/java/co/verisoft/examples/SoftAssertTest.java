@@ -32,7 +32,7 @@ public class SoftAssertTest extends BaseTest {
 
 
     @DriverCapabilities
-    private ChromeOptions capabilities = new ChromeOptions();
+    private final ChromeOptions capabilities = new ChromeOptions();
 
 
     @Test

@@ -20,7 +20,6 @@ package co.verisoft.examples.dependencyinjection;
 
 import io.appium.java_client.MobileCommand;
 import io.appium.java_client.remote.AppiumCommandExecutor;
-import org.apache.xmlbeans.SystemProperties;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
