@@ -20,6 +20,7 @@ package co.verisoft.examples.dependencyinjection;
 
 import io.appium.java_client.MobileCommand;
 import io.appium.java_client.remote.AppiumCommandExecutor;
+import org.apache.xmlbeans.SystemProperties;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
@@ -51,21 +52,20 @@ public class CapabiitiesInjection {
     public Capabilities getChromeCapabilities() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
 
-
+//        options.addArguments("--headless");
         return options;
     }
 
     @Bean("edge")
-    public Capabilities getEdgeCapabilities(){
+    public Capabilities getEdgeCapabilities() {
         EdgeOptions options = new EdgeOptions();
         options.addArguments("--no-sandbox");
         return options;
     }
 
     @Bean("firefox")
-    public Capabilities getFirefoxCapabilities(){
+    public Capabilities getFirefoxCapabilities() {
         return new FirefoxOptions();
     }
 

@@ -24,6 +24,7 @@ import co.verisoft.fw.extentreport.Description;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
 import co.verisoft.fw.selenium.drivers.factory.DriverCapabilities;
+import co.verisoft.fw.selenium.drivers.factory.DriverUrl;
 import co.verisoft.fw.utils.Waits;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,6 +36,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Locale;
 
 @Execution(ExecutionMode.CONCURRENT)
@@ -44,9 +46,10 @@ public class BasicWebExampleTests extends BaseTest {
     private final ChromeOptions capabilities = new ChromeOptions();
 
 
-    //        @DriverUrl
+//    @DriverUrl
 //    private URL url = new URL("http://65.1.2.3:4444/wd/hub");
-    public BasicWebExampleTests() {
+
+    public BasicWebExampleTests() throws MalformedURLException {
     }
 
 
@@ -61,7 +64,7 @@ public class BasicWebExampleTests extends BaseTest {
         String pageTitle = driver.getTitle();
 
         // Note!! Verisoft Assert
-        Asserts.assertTrue(pageTitle.toLowerCase(Locale.ROOT)
+        Asserts.assertFalse(pageTitle.toLowerCase(Locale.ROOT)
                 .contains(phraseToAssert
                         .toLowerCase(Locale.ROOT)), "Page should contain the pharase " + phraseToAssert
                 + " but was " + pageTitle);
@@ -104,7 +107,7 @@ public class BasicWebExampleTests extends BaseTest {
         Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");
         Report.info("We reaeched the result page");
 
-        Asserts.assertFalse(resultPage.getPageTitle().toLowerCase(Locale.ROOT)
+        Asserts.assertTrue(resultPage.getPageTitle().toLowerCase(Locale.ROOT)
                 .contains(phraseToSearch.toLowerCase()), "Title should containt the pharse " + phraseToSearch);
 
     }

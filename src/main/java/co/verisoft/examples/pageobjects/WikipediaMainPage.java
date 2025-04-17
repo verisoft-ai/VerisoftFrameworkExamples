@@ -18,6 +18,7 @@
 package co.verisoft.examples.pageobjects;
 
 import co.verisoft.fw.pages.WebBasePage;
+import co.verisoft.fw.selenium.drivers.VerisoftDriverManager;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -47,6 +48,10 @@ public class WikipediaMainPage extends WebBasePage {
         super(driver);
     }
 
+    public WikipediaMainPage() {
+        super(VerisoftDriverManager.getDriver());
+    }
+
 
     @Override
     public boolean isOnPage() {
@@ -54,14 +59,14 @@ public class WikipediaMainPage extends WebBasePage {
     }
 
 
-    public WikipediaResultPage searchForTerm(String term){
+    public WikipediaResultPage searchForTerm(String term) {
         searchBar.sendKeys(term);
         new Actions(driver).sendKeys(Keys.ENTER).build().perform();
         return new WikipediaResultPage(driver);
     }
 
 
-    public WikipediaMainPage gotoPage(){
+    public WikipediaMainPage gotoPage() {
         driver.get(pageUrl);
         return this;
     }

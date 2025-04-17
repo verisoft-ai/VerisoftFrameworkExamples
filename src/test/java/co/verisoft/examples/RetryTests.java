@@ -32,10 +32,11 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.concurrent.TimeUnit;
 
-public class RetryTests extends BaseTest{
+public class RetryTests extends BaseTest {
 
     @DriverCapabilities
     private final DesiredCapabilities capabilities = new DesiredCapabilities();
+
     {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
@@ -47,7 +48,7 @@ public class RetryTests extends BaseTest{
 
     @Test
     @DisplayName("Test to retry operation")
-    public void retryTest(VerisoftDriver driver){
+    public void retryTest(VerisoftDriver driver) {
         driver.get("https://www.wikipedia.org/");
         driver.findElement(By.id("searchInput")).sendKeys("Test Automation");
         new Actions(driver).sendKeys(Keys.ENTER).build().perform();

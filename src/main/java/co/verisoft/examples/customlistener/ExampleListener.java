@@ -15,6 +15,7 @@
  */
 package co.verisoft.examples.customlistener;
 
+import co.verisoft.fw.report.observer.Report;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,6 @@ public final class ExampleListener implements WebDriverListener {
 
     @Override
     public void beforeAnyCall(Object target, Method method, Object[] args) {
-        log.info("************ Example Listener in Action ************");
+        Report.info("************ Example Listener in Action ************");
     }
 }

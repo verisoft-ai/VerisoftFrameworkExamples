@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class SingleSessionDriver extends BaseTest{
+public class SingleSessionDriverTest extends BaseTest{
 
     private WebDriver driver;
 
@@ -27,7 +27,7 @@ public class SingleSessionDriver extends BaseTest{
         options.merge(capabilities);
     }
 
-    public SingleSessionDriver(){
+    public SingleSessionDriverTest(){
         this.driver = new VerisoftDriver(capabilities);
     }
 
