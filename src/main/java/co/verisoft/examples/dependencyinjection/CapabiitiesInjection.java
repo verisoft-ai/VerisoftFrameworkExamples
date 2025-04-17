@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,21 +51,20 @@ public class CapabiitiesInjection {
     public Capabilities getChromeCapabilities() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
 
-
+//        options.addArguments("--headless");
         return options;
     }
 
     @Bean("edge")
-    public Capabilities getEdgeCapabilities(){
+    public Capabilities getEdgeCapabilities() {
         EdgeOptions options = new EdgeOptions();
         options.addArguments("--no-sandbox");
         return options;
     }
 
     @Bean("firefox")
-    public Capabilities getFirefoxCapabilities(){
+    public Capabilities getFirefoxCapabilities() {
         return new FirefoxOptions();
     }
 
@@ -77,7 +76,6 @@ public class CapabiitiesInjection {
     @Bean("commandExecutor")
     public HttpCommandExecutor getCommandExecutor() throws MalformedURLException {
         URL serverUrl = new URL("http://127.0.0.1:4723/wd/hub/");
-        AppiumCommandExecutor executor = new AppiumCommandExecutor(MobileCommand.commandRepository, serverUrl);
-        return executor;
+        return new AppiumCommandExecutor(MobileCommand.commandRepository, serverUrl);
     }
 }

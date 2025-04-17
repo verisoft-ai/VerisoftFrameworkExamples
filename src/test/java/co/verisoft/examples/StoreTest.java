@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,9 @@ import co.verisoft.fw.store.StoreType;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Unit tests for co.verisoft.fw.store
@@ -100,5 +103,17 @@ public class StoreTest extends BaseTest{
 
         // Note!! Verisoft Assert
         Asserts.assertEquals(receivedName, "val2", "Store should replace the original value");
+    }
+
+    @Test
+    public void shouldNotNeedToCast(){
+        List<Integer> list = new ArrayList<>();
+        list.add(3);
+
+        StoreManager.getStore(StoreType.LOCAL_THREAD).putValueInStore("integerList", list);
+
+
+        List<Integer> receivedList = StoreManager.getStore(StoreType.LOCAL_THREAD).getValueFromStore("integerList");
+        Asserts.assertEquals(receivedList.size(), 1, "should be only one value");
     }
 }

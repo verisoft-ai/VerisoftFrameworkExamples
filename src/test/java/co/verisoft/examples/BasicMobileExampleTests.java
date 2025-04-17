@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,20 +42,20 @@ import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 public class BasicMobileExampleTests extends BaseTest {
 
     @DriverUrl
-    private URL url = new URL("http://127.0.0.1:4723/wd/hub/");
+    private final URL url = new URL("http://127.0.0.1:4723/wd/hub/");
 
     @DriverCapabilities
     UiAutomator2Options uiAutomator2Options = new UiAutomator2Options();
     {
         uiAutomator2Options.setPlatformName(ANDROID)
-            .setUdid("RF8M91XQ8TW")
+            .setUdid("SOMEUDID")
             .setPlatformVersion("12")
             .setAutoGrantPermissions(true)
             .setNoReset(false)
             .setNewCommandTimeout(Duration.ofMinutes(5))
             .setAppActivity(".MainActivity")
-            .setAppPackage("io.water.hydration")
-            .setAutomationName("Flutter");
+            .setAppPackage("co.verisoft.examples")
+            .setAutomationName("UIAUTOMATOR2");
    }
 
 

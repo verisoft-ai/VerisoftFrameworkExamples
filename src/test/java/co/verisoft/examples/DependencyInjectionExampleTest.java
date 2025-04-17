@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,8 @@
 package co.verisoft.examples;
 
 import co.verisoft.examples.dependencyinjection.CapabiitiesInjection;
+import co.verisoft.examples.pageobjects.WikipediaMainPage;
+import co.verisoft.examples.pageobjects.WikipediaResultPage;
 import co.verisoft.fw.asserts.Asserts;
 import co.verisoft.fw.report.observer.Report;
 import co.verisoft.fw.selenium.drivers.VerisoftDriver;
@@ -27,18 +29,17 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Locale;
+
 @Execution(ExecutionMode.CONCURRENT)
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {CapabiitiesInjection.class})
-public class DependencyInjectionExampleTest extends BaseTest{
+public class DependencyInjectionExampleTest extends BaseTest {
 
     @DriverCapabilities
     @Autowired
@@ -47,17 +48,17 @@ public class DependencyInjectionExampleTest extends BaseTest{
 
     @Test
     @DisplayName("Search Wikipedia test with spring extension")
-    public void searchWikipedia(VerisoftDriver driver)  {
-        driver.get("https://www.wikipedia.org/");
-        driver.findElement(By.id("searchInput")).sendKeys("Test Automation");
-        new Actions(driver).sendKeys(Keys.ENTER).build().perform();
-
-        String phraseToAssert = "Test automation";
+    public void searchWikipedia(VerisoftDriver driver) {
+        String phraseToSearch = "Test Automation";
+        WikipediaMainPage wikipediaMainPage = new WikipediaMainPage(driver);
+        WikipediaResultPage resultPage = wikipediaMainPage.gotoPage().searchForTerm(phraseToSearch);
 
         // Note!! Verisoft Assert
-        Asserts.assertTrue(driver.getTitle().contains(phraseToAssert), "Page should contain the pharase " + phraseToAssert);
+        Asserts.assertTrue(resultPage.isOnPage(), "Should be on the result page");
+        Report.info("We reaeched the result page");
 
-        Report.info("Got to this point - We are on the right page");
-        driver.quit();
+        Asserts.assertTrue(resultPage.getPageTitle()
+                        .toLowerCase(Locale.ROOT).contains(phraseToSearch.toLowerCase())
+                , "Title should containt the pharse " + phraseToSearch);
     }
 }

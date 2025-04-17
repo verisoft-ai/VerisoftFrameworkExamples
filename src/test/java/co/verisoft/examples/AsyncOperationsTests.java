@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2023 VeriSoft (http://www.verisoft.co)
+ * (C) Copyright 2025 VeriSoft (http://www.verisoft.ai)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,13 +29,12 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.time.Duration;
 
 @Execution(ExecutionMode.CONCURRENT)
-public class AsyncOperationsTests extends BaseTest{
+public class AsyncOperationsTests extends BaseTest {
 
     private static final String pageTestUrl = "file://" +
             new File(System.getProperty("user.dir") +
@@ -43,7 +42,7 @@ public class AsyncOperationsTests extends BaseTest{
 
 
     @DriverCapabilities
-    private ChromeOptions options = new ChromeOptions();
+    private final ChromeOptions options = new ChromeOptions();
 
     @Test
     public void shouldInvokeAsyncOperationOnceAfterFindBy(VerisoftDriver driver) throws InterruptedException {
@@ -55,6 +54,7 @@ public class AsyncOperationsTests extends BaseTest{
             return true;
         });
         driver.async().register(o);
+
 
         // Default dispatch is 5 second
         Thread.sleep(5500);
@@ -126,7 +126,7 @@ public class AsyncOperationsTests extends BaseTest{
     }
 
     @Test
-    public void shouldChangeDispatchValues(VerisoftDriver driver)  {
+    public void shouldChangeDispatchValues(VerisoftDriver driver) {
         Duration interval = driver.async().getDispatchInterval();
 
         // Test default values Note!! Verisoft Assert
@@ -140,7 +140,7 @@ public class AsyncOperationsTests extends BaseTest{
     }
 
     @Test
-    public void shouNotAllowDispatchValuesToBeLessThanOneSecond(VerisoftDriver driver)  {
+    public void shouNotAllowDispatchValuesToBeLessThanOneSecond(VerisoftDriver driver) {
         Duration interval = driver.async().getDispatchInterval();
 
         // Test default values Note!! Verisoft Assert
@@ -154,7 +154,7 @@ public class AsyncOperationsTests extends BaseTest{
     }
 
     @Test
-    public void DoesNotCrashWhenUnregisterNoObservers(VerisoftDriver driver)  {
+    public void DoesNotCrashWhenUnregisterNoObservers(VerisoftDriver driver) {
         Observer o = new Observer() {
             @Override
             public void update() {
@@ -196,7 +196,7 @@ public class AsyncOperationsTests extends BaseTest{
     }
 
     @Test
-    public void shouldNotAllowToCreateTaskWithLessThanOneSecond(VerisoftDriver driver)  {
+    public void shouldNotAllowToCreateTaskWithLessThanOneSecond(VerisoftDriver driver) {
 
         // The default
         AsyncListenerImp listener = new AsyncListenerImp(Duration.ofSeconds(1));
