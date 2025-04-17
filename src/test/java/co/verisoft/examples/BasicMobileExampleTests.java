@@ -48,14 +48,14 @@ public class BasicMobileExampleTests extends BaseTest {
     UiAutomator2Options uiAutomator2Options = new UiAutomator2Options();
     {
         uiAutomator2Options.setPlatformName(ANDROID)
-            .setUdid("RF8M91XQ8TW")
+            .setUdid("SOMEUDID")
             .setPlatformVersion("12")
             .setAutoGrantPermissions(true)
             .setNoReset(false)
             .setNewCommandTimeout(Duration.ofMinutes(5))
             .setAppActivity(".MainActivity")
-            .setAppPackage("io.water.hydration")
-            .setAutomationName("Flutter");
+            .setAppPackage("co.verisoft.examples")
+            .setAutomationName("UIAUTOMATOR2");
    }
 
 
